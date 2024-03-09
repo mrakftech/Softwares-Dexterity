@@ -1,0 +1,127 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>DexterityApp</RootNamespace>
+    <UseWPF>true</UseWPF>
+    <Nullable>disable</Nullable>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Resources\small_logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Resources\large_logo.png" />
+    <None Remove="Views\small_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.19" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Syncfusion.Licensing">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfNavigationDrawer.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.SfNavigationDrawer.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfSkinManager.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.SfSkinManager.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Shared.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.MaterialDark.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Themes.MaterialDark.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.MaterialDarkBlue.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Themes.MaterialDarkBlue.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.MaterialLight.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Themes.MaterialLight.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.MaterialLightBlue.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Themes.MaterialLightBlue.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Office2019Black.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Themes.Office2019Black.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Office2019Colorful.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Themes.Office2019Colorful.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Office2019DarkGray.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Themes.Office2019DarkGray.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Office2019HighContrast.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Themes.Office2019HighContrast.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Office2019White.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Themes.Office2019White.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Windows11Dark.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Themes.Windows11Dark.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Windows11Light.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Themes.Windows11Light.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Wpf">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Tools.WPF.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+<ItemGroup>
+		<Content Include="Models\PaletteList.xml">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\large_logo.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\small_logo.ico" />
+		<None Remove="Resources\small_logo.png" />
+		<Content Include="Resources\small_logo.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+<ItemGroup>
+  <ProjectReference Include="..\Features\Features.csproj" />
+</ItemGroup>
+<ItemGroup>
+  <Folder Include="Views\User\" />
+</ItemGroup>
+<ItemGroup>
+  <Page Update="Views\Common\SettingsPage.xaml">
+    <Generator>MSBuild:Compile</Generator>
+    <XamlRuntime>Wpf</XamlRuntime>
+    <SubType>Designer</SubType>
+  </Page>
+  <Page Update="Views\Common\HomePage.xaml">
+    <Generator>MSBuild:Compile</Generator>
+    <XamlRuntime>Wpf</XamlRuntime>
+    <SubType>Designer</SubType>
+  </Page>
+</ItemGroup>
+</Project>

@@ -1,0 +1,44 @@
+<Window x:Class="DexterityApp.Views.User.PatientManagement.Family.RegisterMemberWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:DexterityApp.Views.User.PatientManagement.Family"
+        xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        mc:Ignorable="d"
+        Title="Register Member" Height="300" Width="300" Style="{StaticResource DefaultDialogWindow}" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <dxlc:LayoutControl VerticalAlignment="Center">
+            <dxlc:LayoutGroup Header="Register member with Family" View="GroupBox"
+                              Style="{StaticResource SimpleLayoutGroup}"
+                              Orientation="Vertical">
+                <dxlc:LayoutItem Label="Patient Name:">
+                    <dxe:TextEdit Text="Test Patient" />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="Family Name:">
+                    <dxe:TextEdit Text="Dovey" />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="Family Head:">
+                    <dxe:TextEdit Text="Doisy Devey" />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="Patient Relationship:">
+                    <dxe:ComboBoxEdit>
+                        <dxe:ComboBoxEditItem>Aunt</dxe:ComboBoxEditItem>
+                        <dxe:ComboBoxEditItem>Uncle</dxe:ComboBoxEditItem>
+                        <dxe:ComboBoxEditItem>Cousin</dxe:ComboBoxEditItem>
+                    </dxe:ComboBoxEdit>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutGroup ItemSpace="10" Margin="10">
+                    <dxlc:LayoutItem>
+                        <Button Content="Register" Style="{StaticResource ThemeButtonSmall}" Width="80"> </Button>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem>
+                        <Button Content="Cancel" Style="{StaticResource ThemeButtonSmall}" Width="80" Click="Cancel_OnClick"> </Button>
+                    </dxlc:LayoutItem>
+                </dxlc:LayoutGroup>
+            </dxlc:LayoutGroup>
+
+        </dxlc:LayoutControl>
+    </Grid>
+</Window>

@@ -1,0 +1,935 @@
+<Window x:Class="DexterityApp.Views.User.PatientManagement.Dialogs.OpenPatientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:DexterityApp.Views.User.PatientManagement.Dialogs"
+        xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+        mc:Ignorable="d"
+        Title="Update Patient" Height="800" Width="900" WindowStartupLocation="CenterScreen" x:Name="OpenPatientWin"
+        ResizeMode="CanMinimize">
+    <b:Interaction.Triggers>
+        <b:EventTrigger EventName="Loaded">
+            <b:InvokeCommandAction Command="{Binding GetPatientCommand}"
+                                   CommandParameter="{Binding Path=Id, RelativeSource={RelativeSource AncestorType={x:Type local:OpenPatientWindow}}}" />
+        </b:EventTrigger>
+    </b:Interaction.Triggers>
+    <Grid>
+        <DockPanel>
+            <TextBlock Text="Patient Information" DockPanel.Dock="Top" Style="{StaticResource WindowTitle}" />
+
+            <dx:DXTabControl Width="Auto" x:Name="PatientDetailTabControl" SelectedIndex="0"
+                             Style="{StaticResource CustomTabControl}">
+                <dx:DXTabItem Header="Patient Details">
+
+                    <DockPanel VerticalAlignment="Center">
+                        <dxlc:LayoutControl Orientation="Horizontal" ItemSpace="5">
+                            <dxlc:LayoutGroup View="GroupBox" Header="Patient Details"
+                                              Style="{StaticResource SimpleLayoutGroup}">
+                                <dxlc:LayoutGroup ItemSpace="10" Orientation="Vertical" Width="350">
+                                    <dxlc:LayoutItem Label="IHI Number:">
+                                        <dxe:TextEdit
+                                            Text="{Binding Patient.IhINumber, UpdateSourceTrigger=PropertyChanged}" />
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Unique Number:">
+                                        <dxe:TextEdit
+                                            Text="{Binding Patient.UniqueNumber, UpdateSourceTrigger=PropertyChanged}" />
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="First Name: *">
+                                        <dxe:TextEdit
+                                            Text="{Binding Patient.FirstName, UpdateSourceTrigger=PropertyChanged}"
+                                            x:Name="PatientFirstNameTxt" />
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Last Name: *">
+                                        <dxe:TextEdit
+                                            Text="{Binding Patient.LastName, UpdateSourceTrigger=PropertyChanged}"
+                                            x:Name="PatientLastNameTxt" />
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Surname:">
+                                        <dxe:TextEdit
+                                            Text="{Binding Patient.FamilyName, UpdateSourceTrigger=PropertyChanged}" />
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutGroup>
+                                        <dxlc:LayoutItem Label="Title:" Width="150">
+                                            <dxe:ComboBoxEdit
+                                                IsTextEditable="False"
+                                                ItemsSource="{Binding Title}"
+                                                Text="{Binding Patient.Title, UpdateSourceTrigger=PropertyChanged}" />
+                                        </dxlc:LayoutItem>
+                                        <dxlc:LayoutItem Label="Date Of Birth: *">
+                                            <dxe:DateEdit
+                                                MaskType="DateOnly"
+                                                Text="{Binding Patient.DateOfBirth, UpdateSourceTrigger=PropertyChanged}"
+                                                x:Name="DateOfBirth" />
+                                        </dxlc:LayoutItem>
+
+
+                                    </dxlc:LayoutGroup>
+
+                                    <dxlc:LayoutItem
+                                        Label="Address Line 1: *">
+                                        <dxe:TextEdit
+                                            TextWrapping="Wrap"
+                                            VerticalScrollBarVisibility="Auto"
+                                            AcceptsReturn="True"
+                                            VerticalContentAlignment="Top"
+                                            Text="{Binding Patient.AddressLine1, UpdateSourceTrigger=PropertyChanged}"
+                                            x:Name="PatientAddressLine1" />
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem
+                                        Label="Address Line 2:">
+                                        <dxe:TextEdit
+
+                                            TextWrapping="Wrap"
+                                            VerticalScrollBarVisibility="Auto"
+                                            AcceptsReturn="True"
+                                            VerticalContentAlignment="Top"
+                                            Text="{Binding Patient.AddressLine2, UpdateSourceTrigger=PropertyChanged}"
+                                            x:Name="PatientAddressLine2" />
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Gender: *">
+                                        <dxe:ComboBoxEdit
+                                            IsTextEditable="False"
+                                            ItemsSource="{Binding Gender}"
+                                            Text="{Binding Patient.Gender, UpdateSourceTrigger=PropertyChanged}"
+                                            x:Name="GenderTxt" />
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="PPSN: *">
+                                        <dxe:TextEdit
+                                            Text="{Binding Patient.Ppsn, UpdateSourceTrigger=PropertyChanged}"
+                                            x:Name="PpsnTxt" />
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Home Phone:">
+                                        <dxe:TextEdit
+                                            Text="{Binding Patient.HomePhone, UpdateSourceTrigger=PropertyChanged}"
+                                            x:Name="HomePhone" />
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Mobile Number:*">
+                                        <dxe:TextEdit
+                                            Text="{Binding Patient.Mobile, UpdateSourceTrigger=PropertyChanged}"
+                                            x:Name="PatientMobile" />
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Email:*">
+                                        <dxe:TextEdit
+                                            Text="{Binding Patient.EmailAddress, UpdateSourceTrigger=PropertyChanged}"
+                                            x:Name="PatientEmail" />
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="HCP:">
+                                        <dxe:TextEdit
+                                            Text="{Binding Patient.EmailAddress, UpdateSourceTrigger=PropertyChanged}" />
+                                    </dxlc:LayoutItem>
+                                </dxlc:LayoutGroup>
+                            </dxlc:LayoutGroup>
+                            <dxlc:LayoutGroup HorizontalAlignment="Right">
+                                <dxlc:LayoutControl Orientation="Vertical" Width="350">
+                                    <dxlc:LayoutGroup>
+                                        <dxlc:LayoutGroup View="GroupBox" Header="Account Details"
+                                                          Orientation="Vertical"
+                                                          Style="{StaticResource SimpleLayoutGroup}">
+                                            <dxlc:LayoutItem Label="Account Type:">
+                                                <dxe:ComboBoxEdit
+                                                    IsTextEditable="False"
+                                                    ItemsSource="{Binding PatientTypes}" />
+                                            </dxlc:LayoutItem>
+                                            <dxlc:LayoutItem Label="Account Notes:">
+                                                <dxe:TextEdit
+                                                    TextWrapping="Wrap"
+                                                    VerticalScrollBarVisibility="Auto"
+                                                    AcceptsReturn="True"
+                                                    VerticalContentAlignment="Top" />
+                                            </dxlc:LayoutItem>
+                                            <dxlc:LayoutItem Label="Insurance:">
+                                                <dxe:ComboBoxEdit
+                                                    IsTextEditable="False"
+                                                    x:Name="InsuranceTxt" />
+                                            </dxlc:LayoutItem>
+                                            <dxlc:LayoutItem Label="Policy Number:">
+                                                <dxe:TextEdit
+                                                    Text="{Binding Patient.PolicyNumber, UpdateSourceTrigger=PropertyChanged}"
+                                                    x:Name="PolicyNumberTxt" />
+                                            </dxlc:LayoutItem>
+                                        </dxlc:LayoutGroup>
+
+                                    </dxlc:LayoutGroup>
+
+                                    <dxlc:LayoutGroup>
+                                        <dxlc:LayoutGroup View="GroupBox" Header="Patient Types Details"
+                                                          Orientation="Vertical"
+                                                          Style="{StaticResource SimpleLayoutGroup}">
+                                            <dxlc:LayoutItem Label="Patient Status:">
+                                                <dxe:ComboBoxEdit
+                                                    IsTextEditable="False"
+                                                    ItemsSource="{Binding PatientStatus}"
+                                                    Text="{Binding Patient.PatientStatus, UpdateSourceTrigger=PropertyChanged}" />
+                                            </dxlc:LayoutItem>
+                                            <dxlc:LayoutItem Label="Patient Type: *">
+                                                <dxe:ComboBoxEdit
+                                                    IsTextEditable="False"
+                                                    ItemsSource="{Binding PatientTypes}"
+                                                    Text="{Binding Patient.PatientType, UpdateSourceTrigger=PropertyChanged}" />
+                                            </dxlc:LayoutItem>
+                                        </dxlc:LayoutGroup>
+                                    </dxlc:LayoutGroup>
+
+                                    <dxlc:LayoutGroup>
+                                        <dxlc:LayoutGroup ItemSpace="10" Orientation="Vertical" View="GroupBox"
+                                                          Header="GSM Detail"
+                                                          Style="{StaticResource SimpleLayoutGroup}">
+                                            <dxlc:LayoutItem Label="GSM Doctor:">
+                                                <dxe:ComboBoxEdit
+                                                    IsEnabled="False"
+                                                    x:Name="GsmDoctorTxt" />
+                                            </dxlc:LayoutItem>
+                                            <dxlc:LayoutItem Label="GSM Doctor Number:">
+                                                <dxe:TextEdit
+                                                    IsEnabled="False"
+                                                    Text="{Binding Patient.GmsDoctorNumber, UpdateSourceTrigger=PropertyChanged}"
+                                                    x:Name="GmsDoctorNumberTxt" />
+                                            </dxlc:LayoutItem>
+                                            <dxlc:LayoutItem Label="GSM Number:">
+                                                <dxe:TextEdit
+                                                    IsEnabled="False"
+                                                    Text="{Binding Patient.GmsNumber, UpdateSourceTrigger=PropertyChanged}"
+                                                    x:Name="GmsNumberTxt" />
+                                            </dxlc:LayoutItem>
+                                            <dxlc:LayoutItem Label="Expiry:">
+                                                <dxe:DateEdit
+                                                    IsEnabled="False"
+                                                    Text="{Binding Patient.Expiry, UpdateSourceTrigger=PropertyChanged}"
+                                                    x:Name="ExpiryDate" />
+                                            </dxlc:LayoutItem>
+
+
+                                            <dxlc:LayoutGroup>
+                                                <dxlc:LayoutItem>
+                                                    <Button
+                                                        Width="120"
+                                                        Style="{StaticResource ThemeButtonSmall}"
+                                                        Content="Save Patient"
+                                                        x:Name="SavePatient" Command="{Binding SavePatientCommand}"
+                                                        CommandParameter="{Binding ElementName=OpenPatientWin}" />
+
+                                                </dxlc:LayoutItem>
+                                                <dxlc:LayoutItem>
+                                                    <Button
+                                                        Width="100"
+                                                        Style="{StaticResource ThemeButtonSmall}"
+                                                        Content="Close"
+                                                        Click="CloseWindow_Click" />
+                                                </dxlc:LayoutItem>
+                                            </dxlc:LayoutGroup>
+                                        </dxlc:LayoutGroup>
+                                    </dxlc:LayoutGroup>
+                                </dxlc:LayoutControl>
+                            </dxlc:LayoutGroup>
+                        </dxlc:LayoutControl>
+
+                    </DockPanel>
+
+
+                </dx:DXTabItem>
+
+                <dx:DXTabItem Header="Patient Extra Details">
+                    <DockPanel VerticalAlignment="Center">
+                        <dxlc:LayoutControl Orientation="Vertical" ItemSpace="15">
+                            <dxlc:LayoutGroup View="GroupBox" Header="Other Patient Details"
+                                              Style="{StaticResource SimpleLayoutGroup}">
+                                <dxlc:LayoutGroup ItemSpace="10" Orientation="Vertical" Width="350">
+                                    <dxlc:LayoutItem Label="Nationality:">
+                                        <dxe:ComboBoxEdit
+                                            IsTextEditable="False"
+                                            ItemsSource="{Binding Gender}"
+                                            Text="{Binding Patient.Gender, UpdateSourceTrigger=PropertyChanged}" />
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Ethnicity:">
+                                        <dxe:ComboBoxEdit
+                                            IsTextEditable="False"
+                                            ItemsSource="{Binding Gender}"
+                                            Text="{Binding Patient.Gender, UpdateSourceTrigger=PropertyChanged}" />
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Religion:">
+                                        <dxe:ComboBoxEdit
+                                            IsTextEditable="False"
+                                            ItemsSource="{Binding Gender}"
+                                            Text="{Binding Patient.Gender, UpdateSourceTrigger=PropertyChanged}" />
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Residential Status:">
+                                        <dxe:ComboBoxEdit
+                                            IsTextEditable="False"
+                                            ItemsSource="{Binding Gender}"
+                                            Text="{Binding Patient.Gender, UpdateSourceTrigger=PropertyChanged}" />
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Employment Types:">
+                                        <dxe:ComboBoxEdit
+                                            IsTextEditable="False"
+                                            ItemsSource="{Binding Gender}"
+                                            Text="{Binding Patient.Gender, UpdateSourceTrigger=PropertyChanged}" />
+                                    </dxlc:LayoutItem>
+                                </dxlc:LayoutGroup>
+                            </dxlc:LayoutGroup>
+                            <dxlc:LayoutGroup View="GroupBox" Header="Marital Details"
+                                              Style="{StaticResource SimpleLayoutGroup}">
+                                <dxlc:LayoutGroup ItemSpace="10" Orientation="Vertical" Width="350">
+                                    <dxlc:LayoutItem Label="Marital Status:">
+                                        <dxe:ComboBoxEdit
+                                            IsTextEditable="False"
+                                            ItemsSource="{Binding Gender}"
+                                            Text="{Binding Patient.Gender, UpdateSourceTrigger=PropertyChanged}" />
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Residential Status:">
+                                        <dxe:ComboBoxEdit
+                                            IsTextEditable="False"
+                                            ItemsSource="{Binding Gender}"
+                                            Text="{Binding Patient.Gender, UpdateSourceTrigger=PropertyChanged}" />
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Marital Start:">
+                                        <dxe:DateEdit MaskType="DateOnly"></dxe:DateEdit>
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Marital End:">
+                                        <dxe:DateEdit MaskType="DateOnly"></dxe:DateEdit>
+                                    </dxlc:LayoutItem>
+                                </dxlc:LayoutGroup>
+                            </dxlc:LayoutGroup>
+
+                            <dxlc:LayoutGroup View="GroupBox" Header="Hospital Details"
+                                              Style="{StaticResource SimpleLayoutGroup}">
+                                <dxlc:LayoutGroup ItemSpace="10" Orientation="Vertical" Width="350">
+                                    <dxlc:LayoutItem Label="Hospital Name:">
+                                        <dxe:ComboBoxEdit
+                                            IsTextEditable="False" />
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Page Number:">
+                                        <dxe:TextEdit IsEnabled="False"></dxe:TextEdit>
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Hospital Contact:">
+                                        <dxe:TextEdit IsEnabled="False"></dxe:TextEdit>
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem>
+                                        <Button IsEnabled="False" Content="Add/Edit" Width="80"
+                                                HorizontalAlignment="Left"
+                                                Style="{StaticResource ThemeButtonSmall}">
+                                        </Button>
+                                    </dxlc:LayoutItem>
+                                </dxlc:LayoutGroup>
+                            </dxlc:LayoutGroup>
+
+                        </dxlc:LayoutControl>
+
+                        <dxlc:LayoutControl Orientation="Vertical" Width="400" HorizontalAlignment="Right">
+                            <dx:DXTabControl Style="{StaticResource CustomTabControl}" SelectedIndex="1">
+                                <dx:DXTabControl.View>
+                                    <dx:TabControlScrollView HeaderAutoFill="True"
+                                                             HeaderOrientation="Vertical"
+                                                             HeaderLocation="Right" />
+                                </dx:DXTabControl.View>
+                                <dx:DXTabItem Header="Contact Details">
+                                    <dxlc:LayoutControl Orientation="Vertical">
+                                        <dxlc:LayoutGroup Header="Patient Contact(s)"
+                                                          Style="{StaticResource SimpleLayoutGroup}" View="GroupBox">
+                                            <dxlc:LayoutGroup>
+                                                <dxlc:LayoutItem Label="Patient Contacts:">
+                                                    <dxe:ComboBoxEdit>
+                                                        <dxe:ComboBoxEditItem>Contact 1</dxe:ComboBoxEditItem>
+                                                        <dxe:ComboBoxEditItem>Contact 2 </dxe:ComboBoxEditItem>
+                                                        <dxe:ComboBoxEditItem>Contact 3</dxe:ComboBoxEditItem>
+                                                    </dxe:ComboBoxEdit>
+                                                </dxlc:LayoutItem>
+                                            </dxlc:LayoutGroup>
+
+                                        </dxlc:LayoutGroup>
+                                        <dxlc:LayoutGroup View="GroupBox" Header="Contact Details"
+                                                          Style="{StaticResource SimpleLayoutGroup}">
+                                            <dxlc:LayoutGroup Orientation="Vertical">
+                                                <dxlc:LayoutItem Label="Surname:">
+                                                    <dxe:ComboBoxEdit>
+                                                        <dxe:ComboBoxEditItem>Contact 1</dxe:ComboBoxEditItem>
+                                                        <dxe:ComboBoxEditItem>Contact 2 </dxe:ComboBoxEditItem>
+                                                        <dxe:ComboBoxEditItem>Contact 3</dxe:ComboBoxEditItem>
+                                                    </dxe:ComboBoxEdit>
+                                                </dxlc:LayoutItem>
+                                                <dxlc:LayoutItem Label="First Name">
+                                                    <dxe:TextEdit></dxe:TextEdit>
+                                                </dxlc:LayoutItem>
+                                                <dxlc:LayoutItem Label="Date Of Birth">
+                                                    <dxe:DateEdit MaskType="DateOnly"></dxe:DateEdit>
+                                                </dxlc:LayoutItem>
+                                                <dxlc:LayoutItem Label="Address">
+                                                    <dxe:TextEdit
+                                                        TextWrapping="Wrap"
+                                                        VerticalScrollBarVisibility="Auto"
+                                                        AcceptsReturn="True"
+                                                        VerticalContentAlignment="Top" />
+                                                </dxlc:LayoutItem>
+                                                <dxlc:LayoutItem Label="Gender:">
+                                                    <dxe:ComboBoxEdit>
+                                                        <dxe:ComboBoxEditItem>Male</dxe:ComboBoxEditItem>
+                                                        <dxe:ComboBoxEditItem>Female</dxe:ComboBoxEditItem>
+                                                    </dxe:ComboBoxEdit>
+                                                </dxlc:LayoutItem>
+                                                <dxlc:LayoutItem Label="Phone No.">
+                                                    <dxe:TextEdit></dxe:TextEdit>
+                                                </dxlc:LayoutItem>
+                                                <dxlc:LayoutGroup>
+                                                    <dxlc:LayoutItem>
+                                                        <Button Style="{StaticResource ThemeButtonExtraSmall}"
+                                                                Content="Add New" Width="100"
+                                                                HorizontalAlignment="Left" Margin="5">
+                                                        </Button>
+                                                    </dxlc:LayoutItem>
+                                                    <dxlc:LayoutItem>
+                                                        <Button Style="{StaticResource ThemeButtonExtraSmall}"
+                                                                Content="Delete" Width="100"
+                                                                HorizontalAlignment="Right" Margin="5">
+                                                        </Button>
+                                                    </dxlc:LayoutItem>
+                                                </dxlc:LayoutGroup>
+                                            </dxlc:LayoutGroup>
+                                        </dxlc:LayoutGroup>
+
+                                    </dxlc:LayoutControl>
+
+                                </dx:DXTabItem>
+
+                                <dx:DXTabItem Header="Occupations">
+                                    <dxlc:LayoutControl Orientation="Vertical">
+                                        <dxlc:LayoutGroup View="GroupBox" Header="Patient Occupations:"
+                                                          Style="{StaticResource SimpleLayoutGroup}">
+                                            <dxlc:LayoutGroup Header="Occupations">
+                                                <dxlc:LayoutItem Label="Patient Contacts:">
+                                                    <dxe:ComboBoxEdit>
+                                                        <dxe:ComboBoxEditItem>Contact 1</dxe:ComboBoxEditItem>
+                                                        <dxe:ComboBoxEditItem>Contact 2 </dxe:ComboBoxEditItem>
+                                                        <dxe:ComboBoxEditItem>Contact 3</dxe:ComboBoxEditItem>
+                                                    </dxe:ComboBoxEdit>
+                                                </dxlc:LayoutItem>
+                                            </dxlc:LayoutGroup>
+                                        </dxlc:LayoutGroup>
+
+                                        <dxlc:LayoutGroup View="GroupBox" Header="Occupation Details"
+                                                          Style="{StaticResource SimpleLayoutGroup}">
+                                            <dxlc:LayoutGroup Header="" Orientation="Vertical">
+                                                <dxlc:LayoutItem Label="Occupation:">
+                                                    <dxe:TextEdit></dxe:TextEdit>
+                                                </dxlc:LayoutItem>
+                                                <dxlc:LayoutItem Label="Occupation Start:">
+                                                    <dxe:DateEdit MaskType="DateOnly"></dxe:DateEdit>
+                                                </dxlc:LayoutItem>
+                                                <dxlc:LayoutItem Label="Occupation End:">
+                                                    <dxe:DateEdit MaskType="DateOnly"></dxe:DateEdit>
+                                                </dxlc:LayoutItem>
+                                            </dxlc:LayoutGroup>
+                                        </dxlc:LayoutGroup>
+                                        <dxlc:LayoutGroup>
+                                            <dxlc:LayoutItem>
+                                                <Button Style="{StaticResource ThemeButtonExtraSmall}"
+                                                        Content="Add new" Width="100" HorizontalAlignment="Left"
+                                                        Margin="5">
+                                                </Button>
+                                            </dxlc:LayoutItem>
+                                        </dxlc:LayoutGroup>
+                                    </dxlc:LayoutControl>
+                                </dx:DXTabItem>
+
+                                <dx:DXTabItem Header="Related HCPs">
+                                    <dxlc:LayoutGroup>
+                                        <dxlc:LayoutGroup View="GroupBox" Header="HealthCare Professionals"
+                                                          Orientation="Vertical"
+                                                          Style="{StaticResource SimpleLayoutGroup}">
+                                            <dxlc:LayoutItem Label="HCP(1):">
+                                                <dxe:ComboBoxEdit
+                                                    IsTextEditable="False"
+                                                    ItemsSource="{Binding PatientTypes}" />
+                                            </dxlc:LayoutItem>
+                                            <dxlc:LayoutItem Label="Types:">
+                                                <dxe:ComboBoxEdit
+                                                    IsTextEditable="False"
+                                                    ItemsSource="{Binding PatientTypes}" />
+                                            </dxlc:LayoutItem>
+                                            <dxlc:LayoutItem Label="Name:">
+                                                <dxe:TextEdit />
+                                            </dxlc:LayoutItem>
+                                            <dxlc:LayoutItem Label="Address:">
+                                                <dxe:TextEdit
+                                                    TextWrapping="Wrap"
+                                                    VerticalScrollBarVisibility="Auto"
+                                                    AcceptsReturn="True"
+                                                    VerticalContentAlignment="Top"
+                                                    Text="{Binding Patient.AddressLine1, UpdateSourceTrigger=PropertyChanged}" />
+                                            </dxlc:LayoutItem>
+                                            <dxlc:LayoutItem Label="Telephone:">
+                                                <dxe:TextEdit />
+                                            </dxlc:LayoutItem>
+                                            <dxlc:LayoutItem Label="Fax:">
+                                                <dxe:TextEdit />
+                                            </dxlc:LayoutItem>
+                                            <dxlc:LayoutItem Label="Web:">
+                                                <dxe:TextEdit />
+                                            </dxlc:LayoutItem>
+                                            <dxlc:LayoutItem Margin="10 10 10 10">
+                                                <Button Content="Add" Width="80" HorizontalAlignment="Left"
+                                                        Style="{StaticResource ThemeButtonSmall}">
+                                                </Button>
+                                            </dxlc:LayoutItem>
+                                        </dxlc:LayoutGroup>
+
+                                    </dxlc:LayoutGroup>
+                                </dx:DXTabItem>
+                            </dx:DXTabControl>
+
+                        </dxlc:LayoutControl>
+                    </DockPanel>
+
+                </dx:DXTabItem>
+
+                <dx:DXTabItem Header="Patient Alert">
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                        <dx:DXTabControl>
+                            <dx:DXTabControl.View>
+                                <dx:TabControlScrollView HeaderLocation="Left" HeaderOrientation="Horizontal" />
+                            </dx:DXTabControl.View>
+                            <dx:DXTabItem Header="Appointment">
+                                <dx:DXTabItem.GlyphTemplate>
+                                    <DataTemplate>
+                                        <Image Source="/Resources/patient/alerts/appointment.png" Height="32"
+                                               Width="32" Margin="0,0,4,0" />
+                                    </DataTemplate>
+                                </dx:DXTabItem.GlyphTemplate>
+                                <dxlc:LayoutControl>
+                                    <dxlc:LayoutGroup ItemSpace="15" Orientation="Vertical" Width="300">
+                                        <dxlc:LayoutItem Label="Type:">
+                                            <TextBlock Text="Appointment" Style="{StaticResource SmallText}"
+                                                       x:Name="AlertTypTxt" />
+                                        </dxlc:LayoutItem>
+                                        <dxlc:LayoutItem Label="Date:">
+                                            <dxe:DateEdit MaskType="DateOnly"></dxe:DateEdit>
+                                        </dxlc:LayoutItem>
+                                        <dxlc:LayoutItem Label="Category:">
+                                            <dxe:ComboBoxEdit
+                                                IsTextEditable="False"
+                                                ItemsSource="{Binding PatientTypes}" />
+                                        </dxlc:LayoutItem>
+                                        <dxlc:LayoutItem Label="Severity:">
+                                            <dxe:ComboBoxEdit
+                                                IsTextEditable="False"
+                                                ItemsSource="{Binding PatientTypes}" />
+                                        </dxlc:LayoutItem>
+                                        <dxlc:LayoutItem Label="Details:">
+                                            <dxe:TextEdit
+                                                TextWrapping="Wrap"
+                                                VerticalScrollBarVisibility="Auto"
+                                                AcceptsReturn="True"
+                                                VerticalContentAlignment="Top"
+                                                Height="120"
+                                                Text="{Binding Patient.AddressLine1, UpdateSourceTrigger=PropertyChanged}" />
+                                        </dxlc:LayoutItem>
+                                    </dxlc:LayoutGroup>
+                                </dxlc:LayoutControl>
+                            </dx:DXTabItem>
+                            <dx:DXTabItem Header="Account">
+                                <dx:DXTabItem.GlyphTemplate>
+                                    <DataTemplate>
+                                        <Image Source="/Resources/patient/alerts/account.png" Height="32" Width="32"
+                                               Margin="0,0,4,0" />
+                                    </DataTemplate>
+                                </dx:DXTabItem.GlyphTemplate>
+                                <dxlc:LayoutControl>
+                                    <dxlc:LayoutGroup ItemSpace="15" Orientation="Vertical" Width="300">
+                                        <dxlc:LayoutItem Label="Type">
+                                            <TextBlock Text="Account" Style="{StaticResource SmallText}" />
+                                        </dxlc:LayoutItem>
+                                        <dxlc:LayoutItem Label="Date:">
+                                            <dxe:DateEdit MaskType="DateOnly"></dxe:DateEdit>
+                                        </dxlc:LayoutItem>
+                                        <dxlc:LayoutItem Label="Category:">
+                                            <dxe:ComboBoxEdit
+                                                IsTextEditable="False"
+                                                ItemsSource="{Binding PatientTypes}" />
+                                        </dxlc:LayoutItem>
+                                        <dxlc:LayoutItem Label="Severity:">
+                                            <dxe:ComboBoxEdit
+                                                IsTextEditable="False"
+                                                ItemsSource="{Binding PatientTypes}" />
+                                        </dxlc:LayoutItem>
+                                        <dxlc:LayoutItem Label="Details:">
+                                            <dxe:TextEdit
+                                                TextWrapping="Wrap"
+                                                VerticalScrollBarVisibility="Auto"
+                                                AcceptsReturn="True"
+                                                VerticalContentAlignment="Top"
+                                                Height="120"
+                                                Text="{Binding Patient.AddressLine1, UpdateSourceTrigger=PropertyChanged}" />
+                                        </dxlc:LayoutItem>
+                                    </dxlc:LayoutGroup>
+                                </dxlc:LayoutControl>
+                            </dx:DXTabItem>
+                            <dx:DXTabItem Header="Consultation">
+                                <dx:DXTabItem.GlyphTemplate>
+                                    <DataTemplate>
+                                        <Image Source="/Resources/patient/alerts/consultation.png" Height="32"
+                                               Width="32" Margin="0,0,4,0" />
+                                    </DataTemplate>
+                                </dx:DXTabItem.GlyphTemplate>
+                                <dxlc:LayoutControl>
+                                    <dxlc:LayoutGroup ItemSpace="15" Orientation="Vertical" Width="300">
+                                        <dxlc:LayoutItem Label="Type">
+                                            <TextBlock Text="Consultation" Style="{StaticResource SmallText}" />
+                                        </dxlc:LayoutItem>
+                                        <dxlc:LayoutItem Label="Date:">
+                                            <dxe:DateEdit MaskType="DateOnly"></dxe:DateEdit>
+                                        </dxlc:LayoutItem>
+                                        <dxlc:LayoutItem Label="Category:">
+                                            <dxe:ComboBoxEdit
+                                                IsTextEditable="False"
+                                                ItemsSource="{Binding PatientTypes}" />
+                                        </dxlc:LayoutItem>
+                                        <dxlc:LayoutItem Label="Severity:">
+                                            <dxe:ComboBoxEdit
+                                                IsTextEditable="False"
+                                                ItemsSource="{Binding PatientTypes}" />
+                                        </dxlc:LayoutItem>
+                                        <dxlc:LayoutItem Label="Details:">
+                                            <dxe:TextEdit
+                                                TextWrapping="Wrap"
+                                                VerticalScrollBarVisibility="Auto"
+                                                AcceptsReturn="True"
+                                                VerticalContentAlignment="Top"
+                                                Height="120"
+                                                Text="{Binding Patient.AddressLine1, UpdateSourceTrigger=PropertyChanged}" />
+                                        </dxlc:LayoutItem>
+                                    </dxlc:LayoutGroup>
+                                </dxlc:LayoutControl>
+                            </dx:DXTabItem>
+
+                        </dx:DXTabControl>
+                        <Grid>
+                            <dxlc:LayoutControl>
+                                <dxlc:LayoutGroup Width="150" Height="50">
+                                    <dxlc:LayoutItem>
+                                        <Button IsEnabled="False" Content="Delete"
+                                                Style="{StaticResource ThemeButtonSmall}" x:Name="DeleteAlertBtn">
+                                        </Button>
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem>
+                                        <Button IsEnabled="False" Content="Resolved"
+                                                Style="{StaticResource ThemeButtonSmall}" x:Name="ResolvedAlertBtn">
+                                        </Button>
+                                    </dxlc:LayoutItem>
+                                </dxlc:LayoutGroup>
+                            </dxlc:LayoutControl>
+                        </Grid>
+                        <dxg:GridControl x:Name="PatientAlertGridControl" Width="Auto"
+                                         Height="250"
+                                         ItemsSource="{Binding Patients, IsAsync=True, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"
+                                         AutoGenerateColumns="None"
+                                         ShowLoadingPanel="{Binding IsLoading}" SelectionMode="Row">
+                            <dxg:GridControl.View>
+                                <dxg:TableView x:Name="AccountView" AutoWidth="true" ShowTotalSummary="True"
+                                               ShowIndicator="False"
+                                               CanSelectRow="View_CanSelectRow"
+                                               AllowEditing="False" NavigationStyle="Row" AllowCellMerge="True"
+                                               AllowPaging="True" ShowSearchPanelMode="Always">
+                                </dxg:TableView>
+                            </dxg:GridControl.View>
+                            <dxg:GridColumn FieldName="CreatedDate" Header="Date" Width="30" />
+                            <dxg:GridColumn FieldName="Category" Header="Category" Width="30" />
+                            <dxg:GridColumn FieldName="Category" Header="Severity" Width="30" />
+                            <dxg:GridColumn FieldName="Category" Header="" Width="120" />
+                        </dxg:GridControl>
+
+                    </StackPanel>
+
+
+                </dx:DXTabItem>
+
+                <dx:DXTabItem Header="Patient Family">
+                    <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Text="Patient Family Center" DockPanel.Dock="Top"
+                                   Style="{StaticResource WindowTitle}" />
+                        <Grid DockPanel.Dock="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <dx:DXTabControl Width="800">
+                                <dx:DXTabItem Header="Search Family">
+                                    <DockPanel>
+                                        <Grid DockPanel.Dock="Top">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <dxlc:LayoutControl Orientation="Vertical">
+                                                <dxlc:LayoutGroup ItemSpace="2">
+
+                                                    <dxlc:LayoutItem>
+                                                        <Button Content="New Family"
+                                                                Command="{Binding GetPatientsCommand}"
+                                                                Style="{StaticResource ThemeButtonExtraSmall}"
+                                                                Click="NewFamilyButton_OnClick" />
+                                                    </dxlc:LayoutItem>
+                                                    <dxlc:LayoutItem>
+                                                        <Button Content="New Member"
+                                                                Style="{StaticResource ThemeButtonExtraSmall}" />
+                                                    </dxlc:LayoutItem>
+                                                    <dxlc:LayoutItem>
+                                                        <Button Content="Register Member"
+                                                                Style="{StaticResource ThemeButtonExtraSmall}"
+                                                                Click="RegisterFamily_OnClick" />
+                                                    </dxlc:LayoutItem>
+                                                    <dxlc:LayoutItem>
+                                                        <Button Content="Rename"
+                                                                Style="{StaticResource ThemeButtonExtraSmall}"
+                                                                Click="RenameFamilyBtn_OnClick" />
+                                                    </dxlc:LayoutItem>
+                                                    <dxlc:LayoutItem>
+                                                        <Button Content="Remove"
+                                                                Style="{StaticResource ThemeButtonExtraSmall}"
+                                                                Click="RemoveFamilyBtn_OnClick" />
+                                                    </dxlc:LayoutItem>
+                                                    <dxlc:LayoutItem>
+                                                        <Button Content="Transfer"
+                                                                Style="{StaticResource ThemeButtonExtraSmall}"
+                                                                Click="TransferBtn_OnClick" />
+                                                    </dxlc:LayoutItem>
+                                                    <dxlc:LayoutItem>
+                                                        <Button Content="Begin Consultation"
+                                                                Style="{StaticResource ThemeButtonExtraSmall}" />
+                                                    </dxlc:LayoutItem>
+                                                </dxlc:LayoutGroup>
+                                            </dxlc:LayoutControl>
+
+                                        </Grid>
+                                        <Grid>
+                                            <dxg:GridControl x:Name="FamilyGridControl" DockPanel.Dock="Bottom"
+                                                             Width="Auto"
+                                                             Height="400"
+                                                             VerticalAlignment="Center"
+                                                             ItemsSource="{Binding Patients, IsAsync=True, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"
+                                                             AutoGenerateColumns="None"
+                                                             ShowLoadingPanel="{Binding IsLoading}" SelectionMode="Row">
+                                                <dxg:GridControl.View>
+                                                    <dxg:TableView x:Name="FamilyView" AutoWidth="true"
+                                                                   ShowTotalSummary="True"
+                                                                   ShowIndicator="False"
+                                                                   CanSelectRow="View_CanSelectRow"
+                                                                   AllowEditing="False" NavigationStyle="Row"
+                                                                   AllowCellMerge="True"
+                                                                   AllowPaging="True" ShowSearchPanelMode="Always">
+                                                    </dxg:TableView>
+                                                </dxg:GridControl.View>
+                                                <dxg:GridColumn FieldName="HeadFirstName" Header="Head First Name" />
+                                                <dxg:GridColumn FieldName="Surname" Header="Surname" />
+                                                <dxg:GridColumn FieldName="Dob" Header="Date of Birth" />
+                                                <dxg:GridColumn FieldName="Gender" Header="Gender" />
+                                                <dxg:GridColumn FieldName="FamilyRole" Header="FamilyRole" />
+                                                <dxg:GridColumn FieldName="HomeNumber" Header="Home Number" />
+                                                <dxg:GridColumn FieldName="MobileNumber" Header="Mobile Number" />
+                                                <dxg:GridColumn FieldName="Account" Header="Account" />
+
+                                            </dxg:GridControl>
+
+                                        </Grid>
+                                    </DockPanel>
+                                </dx:DXTabItem>
+
+                            </dx:DXTabControl>
+
+                        </Grid>
+
+                    </DockPanel>
+
+                </dx:DXTabItem>
+
+                <dx:DXTabItem Header="Patient Accounts">
+                    <StackPanel VerticalAlignment="Center">
+                        <dxlc:LayoutControl Height="100" VerticalAlignment="Top">
+                            <dxlc:LayoutGroup Width="100">
+                                <dxlc:LayoutItem>
+                                    <Image Source="/Resources/patient/patient-default.png" Stretch="Uniform" Width="75"
+                                           Height="75" />
+                                </dxlc:LayoutItem>
+                            </dxlc:LayoutGroup>
+                            <dxlc:LayoutGroup ItemSpace="15">
+                                <dxlc:LayoutGroup Orientation="Vertical">
+                                    <dxlc:LayoutItem Label="Name:">
+                                        <TextBlock>Test Patient</TextBlock>
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem></dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Type:">
+                                        <TextBlock>Private</TextBlock>
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Status">
+                                        <TextBlock>Active</TextBlock>
+                                    </dxlc:LayoutItem>
+                                </dxlc:LayoutGroup>
+                                <dxlc:LayoutGroup Orientation="Vertical" VerticalAlignment="Bottom">
+                                    <dxlc:LayoutItem Label="Age:">
+                                        <TextBlock>25</TextBlock>
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="PPSN">
+                                        <TextBlock>123645</TextBlock>
+                                    </dxlc:LayoutItem>
+
+                                </dxlc:LayoutGroup>
+                                <dxlc:LayoutGroup Orientation="Vertical">
+                                    <dxlc:LayoutItem Label="Unique No:">
+                                        <TextBlock>000325336</TextBlock>
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Personal:">
+                                        <TextBlock>$10.00</TextBlock>
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Family">
+                                        <TextBlock>$250.00</TextBlock>
+                                    </dxlc:LayoutItem>
+                                </dxlc:LayoutGroup>
+                            </dxlc:LayoutGroup>
+                        </dxlc:LayoutControl>
+                        <TextBlock Background="#0077B5" Foreground="White" FontWeight="Bold" Margin="10">No Alerts</TextBlock>
+                        <dxlc:LayoutControl VerticalAlignment="Top">
+                            <dxlc:LayoutGroup ItemSpace="15">
+                                <dxlc:LayoutGroup Orientation="Vertical">
+                                    <dxlc:LayoutItem Label="Insurance:">
+                                        <TextBlock HorizontalAlignment="Center">None</TextBlock>
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Account:">
+                                        <dxe:ComboBoxEdit>
+                                            <dxe:ComboBoxEditItem>Personal</dxe:ComboBoxEditItem>
+                                            <dxe:ComboBoxEditItem>Family</dxe:ComboBoxEditItem>
+                                        </dxe:ComboBoxEdit>
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="View:">
+                                        <dxe:ComboBoxEdit>
+                                            <dxe:ComboBoxEditItem>Statement</dxe:ComboBoxEditItem>
+                                            <dxe:ComboBoxEditItem>Outstanding</dxe:ComboBoxEditItem>
+                                            <dxe:ComboBoxEditItem>History</dxe:ComboBoxEditItem>
+                                            <dxe:ComboBoxEditItem>Aduit</dxe:ComboBoxEditItem>
+                                            <dxe:ComboBoxEditItem>Print Log</dxe:ComboBoxEditItem>
+                                        </dxe:ComboBoxEdit>
+                                    </dxlc:LayoutItem>
+                                </dxlc:LayoutGroup>
+
+                                <dxlc:LayoutGroup Orientation="Vertical">
+                                    <dxlc:LayoutItem Label="Billing Name:">
+                                        <dxe:TextEdit />
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Label="Billing:">
+                                        <dxe:TextEdit
+                                            TextWrapping="Wrap"
+                                            VerticalScrollBarVisibility="Auto"
+                                            AcceptsReturn="True"
+                                            VerticalContentAlignment="Top"
+                                            Height="60" />
+                                    </dxlc:LayoutItem>
+
+                                </dxlc:LayoutGroup>
+                            </dxlc:LayoutGroup>
+                        </dxlc:LayoutControl>
+                        <dxg:GridControl x:Name="AccountsGridControl" DockPanel.Dock="Bottom" Width="Auto"
+                                         Height="250"
+                                         ItemsSource="{Binding Patients, IsAsync=True, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"
+                                         AutoGenerateColumns="None"
+                                         ShowLoadingPanel="{Binding IsLoading}" SelectionMode="Row">
+                            <dxg:GridControl.DetailDescriptor>
+                                <dxg:DataControlDetailDescriptor ItemsSourceBinding="{Binding Data}">
+                                    <dxg:GridControl AutoGenerateColumns="AddNew" />
+                                </dxg:DataControlDetailDescriptor>
+                            </dxg:GridControl.DetailDescriptor>
+                            <dxg:GridControl.View>
+                                <dxg:TableView x:Name="AccountsView" AutoWidth="true" ShowTotalSummary="True"
+                                               ShowIndicator="False"
+                                               CanSelectRow="View_CanSelectRow"
+                                               AllowEditing="False" NavigationStyle="Row" AllowCellMerge="True"
+                                               AllowPaging="True" ShowSearchPanelMode="Always">
+                                    <dxg:TableView.RowCellMenuCustomizations>
+                                        <dxb:BarButtonItem Content="Delete" />
+                                        <dxb:BarButtonItem Content="Edit" />
+                                    </dxg:TableView.RowCellMenuCustomizations>
+                                </dxg:TableView>
+                            </dxg:GridControl.View>
+                            <dxg:GridColumn FieldName="Date" Header="Date" />
+                            <dxg:GridColumn FieldName="Description" Header="Description" Width="400" />
+                            <dxg:GridColumn FieldName="Remaining" Header="Remaining" />
+                            <dxg:GridColumn FieldName="Debit" Header="Debit" />
+                            <dxg:GridColumn FieldName="Credit" Header="Credit" />
+                            <dxg:GridColumn FieldName="Balance" Header="Balance" />
+
+                        </dxg:GridControl>
+                        <dxlc:LayoutControl>
+                            <dxlc:LayoutGroup HorizontalAlignment="Left">
+                                <dxlc:LayoutItem>
+                                    <Button Content="Charge" Style="{StaticResource ThemeButtonExtraSmall}"
+                                            Width="80" Click="ChargeBtn_OnClick">
+                                    </Button>
+                                </dxlc:LayoutItem>
+                                <dxlc:LayoutItem>
+                                    <Button Content="Payment" Style="{StaticResource ThemeButtonExtraSmall}"
+                                            Width="80" Click="PaymentBtn_OnClick">
+                                    </Button>
+                                </dxlc:LayoutItem>
+                                <dxlc:LayoutItem>
+                                    <Button Content="Transfer" Style="{StaticResource ThemeButtonExtraSmall}"
+                                            Width="80">
+                                    </Button>
+                                </dxlc:LayoutItem>
+
+                                <dxlc:LayoutItem>
+                                    <Button Content="Strike-Off" Style="{StaticResource ThemeButtonExtraSmall}"
+                                            Width="100" Click="StrikeOff_OnClick">
+                                    </Button>
+                                </dxlc:LayoutItem>
+                                <dxlc:LayoutItem>
+                                    <Button Content="Allocate" Style="{StaticResource ThemeButtonExtraSmall}"
+                                            Width="80">
+                                    </Button>
+                                </dxlc:LayoutItem>
+                            </dxlc:LayoutGroup>
+                            <dxlc:LayoutGroup HorizontalAlignment="Right">
+                                <dxlc:LayoutItem>
+                                    <Button Content="Print Reciept" Style="{StaticResource ThemeButtonExtraSmall}"
+                                            Width="100">
+                                    </Button>
+                                </dxlc:LayoutItem>
+                                <dxlc:LayoutItem>
+                                    <Button Content="Print Statement" Style="{StaticResource ThemeButtonExtraSmall}"
+                                            Width="120" Click="PrintStatement_OnClick">
+                                    </Button>
+                                </dxlc:LayoutItem>
+                            </dxlc:LayoutGroup>
+                        </dxlc:LayoutControl>
+                    </StackPanel>
+
+
+                </dx:DXTabItem>
+
+                <dx:DXTabItem Header="Patient Options">
+                    <dxlc:LayoutControl>
+                        <dxlc:LayoutItem>
+                            <Button Content="Patient Export" Style="{StaticResource ThemeButtonExtraSmall}" Click="PatientExport_OnClick"></Button>
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem>
+                            <Button Content="Merge Patient Records" Style="{StaticResource ThemeButtonExtraSmall}" Click="MergeBtn_OnClick"></Button>
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem>
+                            <Button Content="Hospital Viewer" Style="{StaticResource ThemeButtonExtraSmall}" Click="HospitalViewerBtn_OnClick" ></Button>
+                        </dxlc:LayoutItem>
+                    </dxlc:LayoutControl>
+                </dx:DXTabItem>
+            </dx:DXTabControl>
+        </DockPanel>
+    </Grid>
+
+</Window>

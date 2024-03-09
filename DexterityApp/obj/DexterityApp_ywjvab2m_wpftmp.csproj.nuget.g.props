@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\aqiba\.nuget\packages\;C:\Program Files\DevExpress 23.2\Components\Offline Packages;C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\ToolboxNuGetPackages</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.9.1</NuGetToolVersion>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <SourceRoot Include="C:\Users\aqiba\.nuget\packages\" />
+    <SourceRoot Include="C:\Program Files\DevExpress 23.2\Components\Offline Packages\" />
+    <SourceRoot Include="C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\ToolboxNuGetPackages\" />
+  </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.extensions.configuration.usersecrets\8.0.0\buildTransitive\net6.0\Microsoft.Extensions.Configuration.UserSecrets.props" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.configuration.usersecrets\8.0.0\buildTransitive\net6.0\Microsoft.Extensions.Configuration.UserSecrets.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.entityframeworkcore\8.0.2\buildTransitive\net8.0\Microsoft.EntityFrameworkCore.props" Condition="Exists('$(NuGetPackageRoot)microsoft.entityframeworkcore\8.0.2\buildTransitive\net8.0\Microsoft.EntityFrameworkCore.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.entityframeworkcore.design\8.0.2\build\net8.0\Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('$(NuGetPackageRoot)microsoft.entityframeworkcore.design\8.0.2\build\net8.0\Microsoft.EntityFrameworkCore.Design.props')" />
+    <Import Project="C:\Program Files\DevExpress 23.2\Components\Offline Packages\devexpress.data.desktop\23.2.4\build\netcoreapp3.0\DevExpress.Data.Desktop.props" Condition="Exists('C:\Program Files\DevExpress 23.2\Components\Offline Packages\devexpress.data.desktop\23.2.4\build\netcoreapp3.0\DevExpress.Data.Desktop.props')" />
+  </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgSyncfusion_UI_WPF_NET Condition=" '$(PkgSyncfusion_UI_WPF_NET)' == '' ">C:\Users\aqiba\.nuget\packages\syncfusion.ui.wpf.net\24.1.41</PkgSyncfusion_UI_WPF_NET>
+    <PkgMicrosoft_Web_WebView2 Condition=" '$(PkgMicrosoft_Web_WebView2)' == '' ">C:\Users\aqiba\.nuget\packages\microsoft.web.webview2\1.0.864.35</PkgMicrosoft_Web_WebView2>
+    <PkgMicrosoft_Xaml_Behaviors_Wpf Condition=" '$(PkgMicrosoft_Xaml_Behaviors_Wpf)' == '' ">C:\Users\aqiba\.nuget\packages\microsoft.xaml.behaviors.wpf\1.1.77</PkgMicrosoft_Xaml_Behaviors_Wpf>
+    <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\aqiba\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.3</PkgMicrosoft_CodeAnalysis_Analyzers>
+    <PkgDevExpress_Data Condition=" '$(PkgDevExpress_Data)' == '' ">C:\Program Files\DevExpress 23.2\Components\Offline Packages\devexpress.data\23.2.4</PkgDevExpress_Data>
+    <PkgDevExpress_Xpo Condition=" '$(PkgDevExpress_Xpo)' == '' ">C:\Program Files\DevExpress 23.2\Components\Offline Packages\devexpress.xpo\23.2.4</PkgDevExpress_Xpo>
+    <PkgDevExpress_Wpf_Core Condition=" '$(PkgDevExpress_Wpf_Core)' == '' ">C:\Program Files\DevExpress 23.2\Components\Offline Packages\devexpress.wpf.core\23.2.4</PkgDevExpress_Wpf_Core>
+    <PkgDevExpress_Wpf_LayoutControl Condition=" '$(PkgDevExpress_Wpf_LayoutControl)' == '' ">C:\Program Files\DevExpress 23.2\Components\Offline Packages\devexpress.wpf.layoutcontrol\23.2.4</PkgDevExpress_Wpf_LayoutControl>
+    <PkgDevExpress_Wpf_Grid_Core Condition=" '$(PkgDevExpress_Wpf_Grid_Core)' == '' ">C:\Program Files\DevExpress 23.2\Components\Offline Packages\devexpress.wpf.grid.core\23.2.4</PkgDevExpress_Wpf_Grid_Core>
+    <PkgDevExpress_Wpf_Controls Condition=" '$(PkgDevExpress_Wpf_Controls)' == '' ">C:\Program Files\DevExpress 23.2\Components\Offline Packages\devexpress.wpf.controls\23.2.4</PkgDevExpress_Wpf_Controls>
+    <PkgDevExpress_DataAccess Condition=" '$(PkgDevExpress_DataAccess)' == '' ">C:\Program Files\DevExpress 23.2\Components\Offline Packages\devexpress.dataaccess\23.2.4</PkgDevExpress_DataAccess>
+  </PropertyGroup>
+</Project>

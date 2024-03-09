@@ -1,0 +1,58 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+
+    xmlns:syncfusion="clr-namespace:Syncfusion.Windows.Shared;assembly=Syncfusion.Shared.WPF"
+    xmlns:navigationDrawer="http://schemas.syncfusion.com/wpf"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core">
+
+
+    
+    <Style x:Key="CustomTabControl" TargetType="dx:DXTabControl">
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value >
+                <Style TargetType="dx:DXTabItem">
+                    <Setter Property="FontSize" Value="14" />
+                    <Setter Property="BorderColor" Value="#C94444" />
+                    <Setter Property="Foreground" Value="#C94444" />
+                </Style>
+            </Setter.Value>
+        </Setter>
+        
+    </Style>
+  
+    
+    <Style x:Key="CustomNavigationDrawerStyle" TargetType="navigationDrawer:SfNavigationDrawer">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="navigationDrawer:SfNavigationDrawer">
+                    <Border x:Name="Border" Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <!-- The rest of the template -->
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="Border"
+                                                    Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                    To="LightBlue" Duration="0:0:0.2"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="Border"
+                                                    Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                    To="Transparent" Duration="0:0:0.2"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

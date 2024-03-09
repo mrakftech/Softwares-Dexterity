@@ -1,0 +1,57 @@
+<Window x:Class="DexterityApp.Views.User.PatientManagement.Dialogs.AddOrEditHospital"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:DexterityApp.Views.User.PatientManagement.Dialogs"
+        xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        mc:Ignorable="d"
+        Title="Add Patient to Hospital" Height="300" Width="300" Style="{StaticResource DefaultDialogWindow}"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <dxlc:LayoutControl VerticalAlignment="Center">
+            <dxlc:LayoutGroup Header="Patient Hospitals" View="GroupBox"
+                              Style="{StaticResource SimpleLayoutGroup}"
+                              Orientation="Vertical">
+                <dxlc:LayoutItem Label="Hospital Name:">
+                    <dxe:ComboBoxEdit IsTextEditable="False">
+                        <dxe:ComboBoxEditItem>Hospital 1</dxe:ComboBoxEditItem>
+                        <dxe:ComboBoxEditItem>Hospital 1</dxe:ComboBoxEditItem>
+                    </dxe:ComboBoxEdit>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="Address:">
+                    <dxe:TextEdit
+                        TextWrapping="Wrap"
+                        VerticalScrollBarVisibility="Auto"
+                        AcceptsReturn="True"
+                        VerticalContentAlignment="Top" Height="50" IsEnabled="False" />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="Hospital Contact No.:">
+                    <dxe:TextEdit IsEnabled="False" Text="000-0000" />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="Hospital Fax No.:">
+                    <dxe:TextEdit IsEnabled="False" Text="000-0000" />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="Patient Hospital No:">
+                    <dxe:TextEdit IsEnabled="False" Text="000-0000" />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="Active:">
+                    <dxe:CheckEdit HorizontalContentAlignment="Center" />
+
+                </dxlc:LayoutItem>
+                <dxlc:LayoutGroup ItemSpace="10" Margin="10">
+                    <dxlc:LayoutItem>
+                        <Button Content="Save" Style="{StaticResource ThemeButtonSmall}" Width="80"> </Button>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem>
+                        <Button Content="Cancel" Style="{StaticResource ThemeButtonSmall}" Width="80"
+                                Click="Cancel_OnClick">
+                        </Button>
+                    </dxlc:LayoutItem>
+                </dxlc:LayoutGroup>
+            </dxlc:LayoutGroup>
+
+        </dxlc:LayoutControl>
+    </Grid>
+</Window>

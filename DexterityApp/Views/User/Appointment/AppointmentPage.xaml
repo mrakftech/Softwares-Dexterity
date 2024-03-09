@@ -1,0 +1,111 @@
+<Page x:Class="DexterityApp.Views.User.Appointment.AppointmentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:DexterityApp.Views.User.Appointment"
+      xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+      xmlns:dxsch="http://schemas.devexpress.com/winfx/2008/xaml/scheduling"
+      xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+      xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+      xmlns:dxscht="http://schemas.devexpress.com/winfx/2008/xaml/scheduling/themekeys"
+      xmlns:appointment="clr-namespace:DexterityApp.ViewModels.User.Appointment"
+      xmlns:dxr1="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+      xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+      xmlns:dialogs="clr-namespace:DexterityApp.Views.User.Appointment.Dialogs"
+      mc:Ignorable="d"
+      Title="Appointments">
+    <Page.DataContext>
+        <appointment:AppointmentViewModel />
+    </Page.DataContext>
+    <StackPanel>
+        <TextBlock Text="Appointments"
+                   Style="{StaticResource WindowTitle}" />
+        <dxlc:LayoutControl HorizontalAlignment="Left">
+            <dxlc:LayoutGroup>
+                <dxlc:LayoutItem Label="View:"  >
+                    <dxe:ComboBoxEdit  IsTextEditable="False">
+                        <dxe:ComboBoxEditItem>Active</dxe:ComboBoxEditItem>
+                        <dxe:ComboBoxEditItem>Cancelled / DNA Appointments</dxe:ComboBoxEditItem>
+                    </dxe:ComboBoxEdit>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem>
+                    <Button Click="DayView_OnClick">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image Source="{dx:DXImage 'SvgImages/Outlook Inspired/Today.svg'}" Stretch="Uniform" Width="16" Height="16"  VerticalAlignment="Center"  />
+                            <TextBlock Text="Day" VerticalAlignment="Center" Margin="5 0 0 0" />
+                        </StackPanel>
+                    </Button>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem>
+                    <Button Click="WorkWeek_OnClick">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{dx:DXImage 'SvgImages/Business Objects/BO_Appointment.svg'}"  Stretch="Uniform" HorizontalAlignment="Center" Width="16" Height="16"  VerticalAlignment="Center"/>
+                            <TextBlock Text="Work Week" VerticalAlignment="Center" Margin="5 0 0 0" />
+                        </StackPanel>
+                    </Button>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="HCP:"  Width="250" >
+                    <dxe:ComboBoxEdit  IsTextEditable="False">
+                        <dxe:ComboBoxEditItem>Active</dxe:ComboBoxEditItem>
+                        <dxe:ComboBoxEditItem>Cancelled / DNA Appointments</dxe:ComboBoxEditItem>
+                    </dxe:ComboBoxEdit>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem>
+                    <Button  Click="TodayBtn_OnClick">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{dx:DXImage 'Images/Scheduling/DayView_32x32.png'}" Stretch="Uniform" HorizontalAlignment="Center" Width="16" Height="16"  VerticalAlignment="Center"/>
+                            <TextBlock Text="Today" VerticalAlignment="Center" Margin="5 0 0 0" />
+                        </StackPanel>
+                    </Button>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem>
+                    <Button  Command="{Binding PrintSchedulerCommand}"
+                            CommandParameter="{DXBinding '@ElementName(ApptSchedulerControl)'}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{dx:DXImage Image=Print_16x16.png}" Stretch="Uniform" HorizontalAlignment="Center" Width="16" Height="16"  VerticalAlignment="Center"/>
+                            <TextBlock Text="Print Schedule" VerticalAlignment="Center" Margin="5 0 0 0" />
+                        </StackPanel>
+                    </Button>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem>
+                </dxlc:LayoutItem>
+            </dxlc:LayoutGroup>
+        </dxlc:LayoutControl>
+        <Grid>
+            <dxsch:SchedulerControl x:Name="ApptSchedulerControl" GroupType="Resource" FirstDayOfWeek="Monday" Height="500"   >
+                <dxsch:SchedulerControl.OptionsWindows>
+                    <dxsch:OptionsWindows AppointmentWindowType="{x:Type dialogs:SelectPatient}"   />
+                </dxsch:SchedulerControl.OptionsWindows>
+                <dxsch:SchedulerControl.DataSource>
+                    <dxsch:DataSource ResourcesSource="{Binding Doctors}" AppointmentsSource="{Binding Appointments}">
+                        <dxsch:DataSource.ResourceMappings>
+                            <dxsch:ResourceMappings Caption="Name" Id="Id" />
+                        </dxsch:DataSource.ResourceMappings>
+                        <dxsch:DataSource.AppointmentMappings>
+                            <dxsch:AppointmentMappings
+                                Type="Type"
+                                StatusId="StatusId"
+                                Start="StartTime"
+                                Subject="PatientName"
+                                ResourceId="DoctorId"
+                                RecurrenceInfo="RecurrenceInfo"
+                                Reminder="ReminderInfo"
+                                LabelId="CategoryId"
+                                Location="Location"
+                                Id="Id"
+                                End="EndTime"
+                                Description="Notes"
+                                AllDay="AllDay">
+                                <dxsch:CustomFieldMapping Mapping="InsuranceNumber" Name="InsuranceNumber" />
+                                <dxsch:CustomFieldMapping Mapping="FirstVisit" Name="FirstVisit" />
+                            </dxsch:AppointmentMappings>
+                        </dxsch:DataSource.AppointmentMappings>
+                    </dxsch:DataSource>
+                </dxsch:SchedulerControl.DataSource>
+              
+            </dxsch:SchedulerControl>
+        </Grid>
+    </StackPanel>
+</Page>

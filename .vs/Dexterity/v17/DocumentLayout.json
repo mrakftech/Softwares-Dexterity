@@ -1,0 +1,127 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\aqiba\\source\\repos\\App\\Softwares-Dexterity\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2A609252-E41B-4864-9310-08FDBB1F65FA}|DexterityApp\\DexterityApp.csproj|c:\\users\\aqiba\\source\\repos\\app\\softwares-dexterity\\dexterityapp\\models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A609252-E41B-4864-9310-08FDBB1F65FA}|DexterityApp\\DexterityApp.csproj|solutionrelative:dexterityapp\\models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A609252-E41B-4864-9310-08FDBB1F65FA}|DexterityApp\\DexterityApp.csproj|C:\\Users\\aqiba\\source\\repos\\App\\Softwares-Dexterity\\dexterityapp\\views\\admin\\permissionspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2A609252-E41B-4864-9310-08FDBB1F65FA}|DexterityApp\\DexterityApp.csproj|solutionrelative:dexterityapp\\views\\admin\\permissionspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A609252-E41B-4864-9310-08FDBB1F65FA}|DexterityApp\\DexterityApp.csproj|C:\\Users\\aqiba\\source\\repos\\App\\Softwares-Dexterity\\dexterityapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{2A609252-E41B-4864-9310-08FDBB1F65FA}|DexterityApp\\DexterityApp.csproj|solutionrelative:dexterityapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A57D1243-24CB-4D5C-BA4E-71EC66D69AB3}|Shared\\Shared.csproj|C:\\Users\\aqiba\\source\\repos\\App\\Softwares-Dexterity\\shared\\requests\\patient\\patientrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A57D1243-24CB-4D5C-BA4E-71EC66D69AB3}|Shared\\Shared.csproj|solutionrelative:shared\\requests\\patient\\patientrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A609252-E41B-4864-9310-08FDBB1F65FA}|DexterityApp\\DexterityApp.csproj|C:\\Users\\aqiba\\source\\repos\\App\\Softwares-Dexterity\\dexterityapp\\dexterityapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{2A609252-E41B-4864-9310-08FDBB1F65FA}|DexterityApp\\DexterityApp.csproj|solutionrelative:dexterityapp\\dexterityapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3fd5e0cc-709a-4f8c-94c3-7f0f8dff5bb2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Doctor.cs",
+              "DocumentMoniker": "C:\\Users\\aqiba\\source\\repos\\App\\Softwares-Dexterity\\DexterityApp\\Models\\Doctor.cs",
+              "RelativeDocumentMoniker": "DexterityApp\\Models\\Doctor.cs",
+              "ToolTip": "C:\\Users\\aqiba\\source\\repos\\App\\Softwares-Dexterity\\DexterityApp\\Models\\Doctor.cs",
+              "RelativeToolTip": "DexterityApp\\Models\\Doctor.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-08T17:19:24.284Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PermissionsPage.xaml",
+              "DocumentMoniker": "C:\\Users\\aqiba\\source\\repos\\App\\Softwares-Dexterity\\DexterityApp\\Views\\Admin\\PermissionsPage.xaml",
+              "RelativeDocumentMoniker": "DexterityApp\\Views\\Admin\\PermissionsPage.xaml",
+              "ToolTip": "C:\\Users\\aqiba\\source\\repos\\App\\Softwares-Dexterity\\DexterityApp\\Views\\Admin\\PermissionsPage.xaml",
+              "RelativeToolTip": "DexterityApp\\Views\\Admin\\PermissionsPage.xaml",
+              "ViewState": "AQIAABgAAADgZmZmZmYkwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-03-07T17:00:23.15Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\aqiba\\source\\repos\\App\\Softwares-Dexterity\\DexterityApp\\appsettings.json",
+              "RelativeDocumentMoniker": "DexterityApp\\appsettings.json",
+              "ToolTip": "C:\\Users\\aqiba\\source\\repos\\App\\Softwares-Dexterity\\DexterityApp\\appsettings.json",
+              "RelativeToolTip": "DexterityApp\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-07T09:23:07.749Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PatientRequest.cs",
+              "DocumentMoniker": "C:\\Users\\aqiba\\source\\repos\\App\\Softwares-Dexterity\\Shared\\Requests\\Patient\\PatientRequest.cs",
+              "RelativeDocumentMoniker": "Shared\\Requests\\Patient\\PatientRequest.cs",
+              "ToolTip": "C:\\Users\\aqiba\\source\\repos\\App\\Softwares-Dexterity\\Shared\\Requests\\Patient\\PatientRequest.cs",
+              "RelativeToolTip": "Shared\\Requests\\Patient\\PatientRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-07T09:21:06.715Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DexterityApp",
+              "DocumentMoniker": "C:\\Users\\aqiba\\source\\repos\\App\\Softwares-Dexterity\\DexterityApp\\DexterityApp.csproj",
+              "RelativeDocumentMoniker": "DexterityApp\\DexterityApp.csproj",
+              "ToolTip": "C:\\Users\\aqiba\\source\\repos\\App\\Softwares-Dexterity\\DexterityApp\\DexterityApp.csproj",
+              "RelativeToolTip": "DexterityApp\\DexterityApp.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAABPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-03-07T09:19:21.944Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,288 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>DexterityApp</RootNamespace>
+    <UseWPF>true</UseWPF>
+    <Nullable>disable</Nullable>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Resources\small_logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Resources\large_logo.png" />
+    <None Remove="Views\small_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+	  <PackageReference Include="DevExpress.Reporting.Core" Version="23.2.3" />
+	  <PackageReference Include="devexpress.wpf.controls" Version="23.2.3" />
+	  <PackageReference Include="devexpress.wpf.core" Version="23.2.3" />
+	  <PackageReference Include="devexpress.wpf.grid.core" Version="23.2.3" />
+	  <PackageReference Include="devexpress.wpf.layoutcontrol" Version="23.2.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.77" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+    <PackageReference Include="syncfusion.ui.wpf.net" Version="24.1.41" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Drawing.v23.2">
+      <HintPath>C:\Program Files\DevExpress 23.2\Components\Bin\Framework\DevExpress.Drawing.v23.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Scheduler.v23.2">
+      <HintPath>C:\Program Files\DevExpress 23.2\Components\Bin\Framework\DevExpress.ExpressApp.Scheduler.v23.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Images.v23.2">
+      <HintPath>C:\Program Files\DevExpress 23.2\Components\Bin\Framework\DevExpress.Images.v23.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v23.2">
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\DevExpress.Xpf.Core.v23.2\v4.0_23.2.3.0__b88d1754d700e49a\DevExpress.Xpf.Core.v23.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Printing.v23.2">
+      <HintPath>C:\Program Files\DevExpress 23.2\Components\Bin\Framework\DevExpress.Xpf.Printing.v23.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Ribbon.v23.2">
+      <HintPath>C:\Program Files\DevExpress 23.2\Components\Bin\Framework\DevExpress.Xpf.Ribbon.v23.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Scheduling.v23.2">
+      <HintPath>C:\Program Files\DevExpress 23.2\Components\Bin\Framework\DevExpress.Xpf.Scheduling.v23.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v23.2">
+      <HintPath>C:\Program Files\DevExpress 23.2\Components\Bin\Framework\DevExpress.XtraPrinting.v23.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v23.2.Core">
+      <HintPath>C:\Program Files\DevExpress 23.2\Components\Bin\Framework\DevExpress.XtraScheduler.v23.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v23.2.Core.Desktop">
+      <HintPath>C:\Program Files\DevExpress 23.2\Components\Bin\Framework\DevExpress.XtraScheduler.v23.2.Core.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v23.2.Reporting">
+      <HintPath>C:\Program Files\DevExpress 23.2\Components\Bin\Framework\DevExpress.XtraScheduler.v23.2.Reporting.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfNavigationDrawer.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.SfNavigationDrawer.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfSkinManager.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.SfSkinManager.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Shared.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.MaterialDark.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Themes.MaterialDark.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.MaterialDarkBlue.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Themes.MaterialDarkBlue.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.MaterialLight.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Themes.MaterialLight.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.MaterialLightBlue.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Themes.MaterialLightBlue.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Office2019Black.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Themes.Office2019Black.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Office2019Colorful.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Themes.Office2019Colorful.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Office2019DarkGray.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Themes.Office2019DarkGray.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Office2019HighContrast.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Themes.Office2019HighContrast.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Office2019White.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Themes.Office2019White.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Windows11Dark.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Themes.Windows11Dark.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Windows11Light.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Themes.Windows11Light.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Wpf">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\24.1.41\precompiledassemblies\net6.0\Syncfusion.Tools.WPF.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Admin\ResetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+<ItemGroup>
+		<Content Include="Models\PaletteList.xml">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\large_logo.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\small_logo.ico" />
+	</ItemGroup>
+<ItemGroup>
+  <ProjectReference Include="..\Services\Services.csproj" />
+</ItemGroup>
+<ItemGroup>
+  <None Remove="Resources\small_logo.png" />
+  <Resource Include="Resources\small_logo.png">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Resource>
+  <None Remove="Resources\inputs\email.png" />
+  <None Remove="Resources\inputs\password.png" />
+  <None Remove="Resources\close.png" />
+  <Resource Include="Resources\close.png">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Resource>
+  <None Remove="Resources\inputs\username.png" />
+  <Resource Include="Resources\inputs\username.png">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Resource>
+  <None Remove="Resources\inputs\password-icon.png" />
+  <Resource Include="Resources\inputs\password-icon.png">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Resource>
+  <None Remove="Resources\inputs\asterisk.png" />
+  <Resource Include="Resources\inputs\asterisk.png">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Resource>
+  <None Remove="Resources\actions\edit.png" />
+  <Resource Include="Resources\actions\edit.png">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Resource>
+  <None Remove="Resources\actions\delete.png" />
+  <Resource Include="Resources\actions\delete.png">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Resource>
+  <None Remove="Resources\patient\details.png" />
+  <Resource Include="Resources\patient\details.png">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Resource>
+  <None Remove="Resources\patient\contact-details.png" />
+  <Resource Include="Resources\patient\contact-details.png">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Resource>
+  <None Remove="Resources\patient\tasks.png" />
+  <Resource Include="Resources\patient\tasks.png">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Resource>
+  <None Remove="Resources\patient\sms-history.png" />
+  <Resource Include="Resources\patient\sms-history.png">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Resource>
+  <None Remove="Resources\patient\medical-summary.png" />
+  <Resource Include="Resources\patient\medical-summary.png">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Resource>
+  <None Remove="Resources\patient\medical-history.png" />
+  <Resource Include="Resources\patient\medical-history.png">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Resource>
+  <None Remove="Resources\patient\baseline-details.png" />
+  <Resource Include="Resources\patient\baseline-details.png">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Resource>
+  <None Remove="Resources\patient\visit-history.png" />
+  <Resource Include="Resources\patient\visit-history.png">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Resource>
+  <None Remove="Resources\patient\patient-default.png" />
+  <Resource Include="Resources\patient\patient-default.png">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Resource>
+  <None Remove="Resources\patient\alerts\account.png" />
+  <Resource Include="Resources\patient\alerts\account.png">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Resource>
+  <None Remove="Resources\patient\alerts\appointment.png" />
+  <Resource Include="Resources\patient\alerts\appointment.png">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Resource>
+  <None Remove="Resources\patient\alerts\consultation.png" />
+  <Resource Include="Resources\patient\alerts\consultation.png">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Resource>
+  <None Remove="Resources\appointment\today.png" />
+  <Resource Include="Resources\appointment\today.png">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Resource>
+  <None Remove="Resources\appointment\day-view.png" />
+  <Resource Include="Resources\appointment\day-view.png">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Resource>
+  <None Remove="Resources\appointment\work-view.png" />
+  <Resource Include="Resources\appointment\work-view.png">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Resource>
+  <None Remove="Resources\appointment\print-schedule.png" />
+  <Resource Include="Resources\appointment\print-schedule.png">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Resource>
+</ItemGroup>
+<ItemGroup>
+  <Page Update="Views\Common\SettingsPage.xaml">
+    <Generator>MSBuild:Compile</Generator>
+    <XamlRuntime>Wpf</XamlRuntime>
+    <SubType>Designer</SubType>
+  </Page>
+  <Page Update="Views\Common\HomePage.xaml">
+    <Generator>MSBuild:Compile</Generator>
+    <XamlRuntime>Wpf</XamlRuntime>
+    <SubType>Designer</SubType>
+  </Page>
+  <Page Update="Styles\Button.xaml">
+    <Generator>MSBuild:Compile</Generator>
+    <XamlRuntime>Wpf</XamlRuntime>
+    <SubType>Designer</SubType>
+  </Page>
+  <Page Update="Styles\TextBox.xaml">
+    <Generator>MSBuild:Compile</Generator>
+    <XamlRuntime>Wpf</XamlRuntime>
+    <SubType>Designer</SubType>
+  </Page>
+  <Page Update="Views\User\PatientManagement\PatientManagementPage.xaml">
+    <Generator>MSBuild:Compile</Generator>
+    <XamlRuntime>Wpf</XamlRuntime>
+    <SubType>Designer</SubType>
+  </Page>
+  <Page Update="Styles\CustomTheme.xaml">
+    <Generator>MSBuild:Compile</Generator>
+    <XamlRuntime>Wpf</XamlRuntime>
+    <SubType>Designer</SubType>
+  </Page>
+  <Page Update="Views\User\PatientManagement\Dialogs\AddNewPatientWindow.xaml">
+    <Generator>MSBuild:Compile</Generator>
+    <XamlRuntime>Wpf</XamlRuntime>
+    <SubType>Designer</SubType>
+  </Page>
+  <Page Update="Views\User\PatientManagement\Accounts\PaymentWindow.xaml">
+    <Generator>MSBuild:Compile</Generator>
+    <XamlRuntime>Wpf</XamlRuntime>
+    <SubType>Designer</SubType>
+  </Page>
+</ItemGroup>
+</Project>

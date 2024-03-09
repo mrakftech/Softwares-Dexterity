@@ -1,0 +1,114 @@
+<Window x:Class="DexterityApp.Views.User.PatientManagement.Accounts.StrikeOffWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:DexterityApp.Views.User.PatientManagement.Accounts"
+        xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        mc:Ignorable="d"
+        Title="StrikeOffWindow" WindowStartupLocation="CenterScreen" Width="450" Height="800"
+        ShowInTaskbar="False"
+        ResizeMode="NoResize">
+    <StackPanel>
+        <TextBlock Text="{Binding Title}" DockPanel.Dock="Top" Style="{StaticResource WindowTitle}" />
+        <dxlc:LayoutControl VerticalAlignment="Top">
+            <dxlc:LayoutGroup ItemSpace="15">
+                <dxlc:LayoutGroup Orientation="Vertical">
+                    <dxlc:LayoutItem Label="">
+                        <TextBlock>Smith, Alexander</TextBlock>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Personal:">
+                        <TextBlock>65.00</TextBlock>
+                    </dxlc:LayoutItem>
+
+                </dxlc:LayoutGroup>
+                <dxlc:LayoutGroup Orientation="Vertical" HorizontalAlignment="Right">
+                    <dxlc:LayoutItem Label="">
+                        <TextBlock>06/03/1973 (42 yrs)</TextBlock>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Family">
+                        <TextBlock>$250.00</TextBlock>
+                    </dxlc:LayoutItem>
+                </dxlc:LayoutGroup>
+            </dxlc:LayoutGroup>
+        </dxlc:LayoutControl>
+        <dxlc:LayoutControl Orientation="Vertical">
+            <dxlc:LayoutGroup View="GroupBox" Header="Strike-Off Details" Style="{StaticResource SimpleLayoutGroup}">
+                <dxlc:LayoutGroup Orientation="Vertical" ItemSpace="20">
+                    <dxlc:LayoutItem Label="Department:">
+                        <dxe:ComboBoxEdit>
+                            <dxe:ComboBoxEditItem>Department 1</dxe:ComboBoxEditItem>
+                            <dxe:ComboBoxEditItem>Department 2</dxe:ComboBoxEditItem>
+                            <dxe:ComboBoxEditItem>Department 3</dxe:ComboBoxEditItem>
+                        </dxe:ComboBoxEdit>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="HCP:">
+                        <dxe:ComboBoxEdit>
+                            <dxe:ComboBoxEditItem>Paul Jackson</dxe:ComboBoxEditItem>
+                            <dxe:ComboBoxEditItem>Imran Khan</dxe:ComboBoxEditItem>
+                        </dxe:ComboBoxEdit>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Strike-Off Type:">
+                        <dxe:ComboBoxEdit>
+                            <dxe:ComboBoxEditItem>Written Off</dxe:ComboBoxEditItem>
+                        </dxe:ComboBoxEdit>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Payment To:">
+                        <dxe:ComboBoxEdit>
+                            <dxe:ComboBoxEditItem>Personal</dxe:ComboBoxEditItem>
+                        </dxe:ComboBoxEdit>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Strike-Off Date:">
+                        <dxe:DateEdit MaskType="DateOnly"></dxe:DateEdit>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Amount:">
+                        <dxe:TextEdit MaskType="Numeric" Width="80" HorizontalAlignment="Left"></dxe:TextEdit>
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutItem Label="Print Receipt">
+                        <dxe:CheckEdit></dxe:CheckEdit>
+                    </dxlc:LayoutItem>
+
+                </dxlc:LayoutGroup>
+
+            </dxlc:LayoutGroup>
+            <dxlc:LayoutGroup>
+                <dxlc:LayoutGroup View="GroupBox" Header="Unallocated Charges"
+                                  Style="{StaticResource SimpleLayoutGroup}">
+                    <dxlc:LayoutItem>
+                        <dxg:GridControl x:Name="PatientGridControl" DockPanel.Dock="Bottom" Width="Auto"
+                                         Height="200"
+                                         ItemsSource="{Binding Patients, IsAsync=True, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"
+                                         AutoGenerateColumns="None"
+                                         ShowLoadingPanel="{Binding IsLoading}" SelectionMode="Row">
+                            <dxg:GridControl.View>
+                                <dxg:TableView x:Name="PatientView" AutoWidth="true" ShowTotalSummary="True"
+                                               ShowIndicator="False"
+                                               AllowEditing="False" NavigationStyle="Row" AllowCellMerge="True"
+                                               AllowPaging="True" ShowSearchPanelMode="Always">
+                                </dxg:TableView>
+                            </dxg:GridControl.View>
+                            <dxg:GridColumn FieldName="Pay" Header="Pay" Width="20" />
+                            <dxg:GridColumn FieldName="Date" Header="Date" Width="25" />
+                            <dxg:GridColumn FieldName="Description" Header="Description" />
+                            <dxg:GridColumn FieldName="Payment" Header="Payment" Width="35" />
+                        </dxg:GridControl>
+                    </dxlc:LayoutItem>
+                </dxlc:LayoutGroup>
+            </dxlc:LayoutGroup>
+
+        </dxlc:LayoutControl>
+        <dxlc:LayoutControl>
+            <dxlc:LayoutGroup HorizontalAlignment="Right">
+                <dxlc:LayoutItem>
+                    <Button Content="Strike-Off" Style="{StaticResource ThemeButtonExtraSmall}"></Button>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Width="100">
+                    <Button Content="Close" Style="{StaticResource ThemeButtonExtraSmall}"></Button>
+                </dxlc:LayoutItem>
+            </dxlc:LayoutGroup>
+        </dxlc:LayoutControl>
+    </StackPanel>
+</Window>

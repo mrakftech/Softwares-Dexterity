@@ -1,0 +1,108 @@
+<Page x:Class="DexterityApp.Views.User.PatientManagement.PatientManagementPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:DexterityApp.Views.User"
+      xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+      xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+      xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+      xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+      xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+      mc:Ignorable="d"
+      Title="PatientManagement" Height="Auto" Width="Auto">
+    <Grid>
+        <DockPanel>
+            <TextBlock Text="Patient Management"
+                       Style="{StaticResource WindowTitle}"
+                       DockPanel.Dock="Top" />
+            <dx:DXTabControl Height="Auto" Width="Auto" x:Name="PatientTabControl"
+                             ItemsChanged="PatientTabControl_OnItemsChanged" Style="{StaticResource CustomTabControl}">
+                <dx:DXTabItem Header="Search Patient">
+                    <DockPanel LastChildFill="True">
+                        <Grid DockPanel.Dock="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <dxlc:LayoutControl Orientation="Vertical">
+                                <dxlc:LayoutGroup ItemSpace="10">
+                                    <Button Content="Load Patients" Command="{Binding GetPatientsCommand}"
+                                            Style="{StaticResource ThemeButtonSmall}" />
+                                    <Button Content="Add new patient" Style="{StaticResource ThemeButtonSmall}"
+                                            Click="AddNewPatient_Click" />
+
+                                    <Button IsEnabled="False" Content="Open Patient"
+                                            Style="{StaticResource ThemeButtonSmall}"
+                                            Click="OpenPatient_OnClick" x:Name="OpenPatientBtn" />
+
+                                    <Button IsEnabled="False" Content="Patient Summary"
+                                            Style="{StaticResource ThemeButtonSmall}"
+                                            Click="SummaryPatient_OnClick" x:Name="PatientSummaryBtn" />
+                                </dxlc:LayoutGroup>
+
+                            </dxlc:LayoutControl>
+
+                        </Grid>
+                        <Grid>
+                            <dxg:GridControl x:Name="PatientGridControl" DockPanel.Dock="Bottom" Width="Auto"
+                                             Height="Auto"
+                                             ItemsSource="{Binding Patients, IsAsync=True, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"
+                                             AutoGenerateColumns="None"
+                                             ShowLoadingPanel="{Binding IsLoading}" SelectionMode="Row">
+                                <dxg:GridControl.View>
+                                    <dxg:TableView x:Name="PatientView" AutoWidth="true" ShowTotalSummary="True"
+                                                   ShowIndicator="False"
+                                                   CanSelectRow="View_CanSelectRow"
+                                                   AllowEditing="False" NavigationStyle="Row" AllowCellMerge="True"
+                                                   AllowPaging="True" ShowSearchPanelMode="Always">
+                                        <dxg:TableView.RowCellMenuCustomizations>
+                                            <dxb:BarButtonItem Content="Delete" />
+                                            <dxb:BarButtonItem Content="Edit" />
+                                        </dxg:TableView.RowCellMenuCustomizations>
+                                    </dxg:TableView>
+                                </dxg:GridControl.View>
+                                <dxg:GridColumn FieldName="CreatedDate" Header="Created Date" Width="Auto" />
+                                <dxg:GridColumn FieldName="FullName" Header="Full Name" Width="Auto" />
+                                <dxg:GridColumn FieldName="Gender" Header="Gender" Width="Auto" />
+                                <dxg:GridColumn FieldName="DateOfBirth" Header="Date Of Birth" Width="30" />
+                                <dxg:GridColumn FieldName="EmailAddress" Header="Email" Width="Auto" />
+                                <dxg:GridColumn FieldName="AddressLine1" Header="Address" Width="Auto" />
+                                <dxg:GridColumn FieldName="" Width="50">
+                                    <dxg:GridColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <dxe:ButtonEdit HorizontalContentAlignment="Center"
+                                                            AllowDefaultButton="False" HorizontalAlignment="Right"
+                                                            Width="100" ShowText="False" Background="Transparent"
+                                                            Margin="0,0,0,0">
+                                                <dxe:ButtonEdit.Buttons>
+                                                    <dxe:ButtonInfo Click="EditPatient_Click">
+                                                        <dxe:ButtonInfo.Content>
+                                                            <Image Source="/Resources/actions/edit.png" Height="20" />
+                                                        </dxe:ButtonInfo.Content>
+                                                    </dxe:ButtonInfo>
+                                                    <dxe:ButtonInfo Click="DeletePatient_OnClick">
+                                                        <dxe:ButtonInfo.Content>
+                                                            <Image Source="/Resources/actions/delete.png" Height="20" />
+                                                        </dxe:ButtonInfo.Content>
+                                                    </dxe:ButtonInfo>
+                                                </dxe:ButtonEdit.Buttons>
+                                            </dxe:ButtonEdit>
+                                        </DataTemplate>
+                                    </dxg:GridColumn.CellTemplate>
+                                </dxg:GridColumn>
+                            </dxg:GridControl>
+
+                        </Grid>
+                    </DockPanel>
+
+
+                </dx:DXTabItem>
+            </dx:DXTabControl>
+
+        </DockPanel>
+    </Grid>
+</Page>

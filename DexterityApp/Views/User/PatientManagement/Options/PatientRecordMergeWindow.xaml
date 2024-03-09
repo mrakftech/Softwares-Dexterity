@@ -1,0 +1,96 @@
+<Window x:Class="DexterityApp.Views.User.PatientManagement.Options.PatientRecordMergeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:DexterityApp.Views.User.PatientManagement.Options"
+        xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        mc:Ignorable="d"
+        Title="PatientRecordMergeWindow" Height="350" Width="600" WindowStartupLocation="CenterScreen"
+        ShowInTaskbar="False"
+        ResizeMode="NoResize">
+    <StackPanel HorizontalAlignment="Center">
+        <TextBlock Text="Merge Patient Records" Width="600" TextAlignment="Center" FontWeight="Normal"
+                   DockPanel.Dock="Top" Style="{StaticResource WindowTitle}" Background="Brown" Foreground="White" />
+        <dxlc:LayoutControl VerticalAlignment="Top">
+            <dxlc:LayoutGroup View="GroupBox" Header="Patient to Keep" Width="250" Orientation="Vertical">
+                <dxlc:LayoutGroup.GroupBoxStyle>
+                    <Style TargetType="dxlc:GroupBox">
+                        <Setter Property="FontWeight" Value="Bold" />
+                        <Setter Property="FontSize" Value="14" />
+                        <Setter Property="TitleBackground" Value="SeaGreen" />
+                        <Setter Property="Foreground" Value="White" />
+                    </Style>
+                </dxlc:LayoutGroup.GroupBoxStyle>
+                <dxlc:LayoutItem Label="Patient:">
+                    <dxe:TextEdit></dxe:TextEdit>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="Surname:">
+                    <dxe:TextEdit></dxe:TextEdit>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="First Name:">
+                    <dxe:TextEdit></dxe:TextEdit>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="DOB:">
+                    <dxe:DateEdit MaskType="DateOnly"></dxe:DateEdit>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="Address">
+                    <dxe:TextEdit
+                        TextWrapping="Wrap"
+                        VerticalScrollBarVisibility="Auto"
+                        AcceptsReturn="True"
+                        VerticalContentAlignment="Top" />
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem>
+                    <TextBlock Foreground="Firebrick" FontWeight="Bold" HorizontalAlignment="Center"
+                               TextAlignment="Center" FontSize="14">
+                        *****WARNING*****
+                        <LineBreak />
+                        A Patient Merge is Irreversible
+                    </TextBlock>
+                </dxlc:LayoutItem>
+            </dxlc:LayoutGroup>
+            <dxlc:LayoutGroup View="GroupBox" Header="Patient to Remove" Width="250" HorizontalAlignment="Right"
+                              Orientation="Vertical">
+                <dxlc:LayoutGroup.GroupBoxStyle>
+                    <Style TargetType="dxlc:GroupBox">
+                        <Setter Property="FontWeight" Value="Bold" />
+                        <Setter Property="FontSize" Value="14" />
+                        <Setter Property="TitleBackground" Value="Firebrick" />
+                        <Setter Property="Foreground" Value="White" />
+                    </Style>
+                </dxlc:LayoutGroup.GroupBoxStyle>
+
+                <dxlc:LayoutItem Label="Patient:">
+                    <dxe:TextEdit></dxe:TextEdit>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="Surname:">
+                    <dxe:TextEdit></dxe:TextEdit>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="First Name:">
+                    <dxe:TextEdit></dxe:TextEdit>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="DOB:">
+                    <dxe:DateEdit MaskType="DateOnly"></dxe:DateEdit>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="Address">
+                    <dxe:TextEdit
+                        TextWrapping="Wrap"
+                        VerticalScrollBarVisibility="Auto"
+                        AcceptsReturn="True"
+                        VerticalContentAlignment="Top" />
+                </dxlc:LayoutItem>
+                <dxlc:LayoutGroup HorizontalAlignment="Right" Margin="10">
+                    <dxlc:LayoutItem>
+                        <Button Content="Merge" Width="120" Style="{StaticResource ThemeButtonExtraSmall}"></Button>
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem>
+                        <Button Content="Close" Width="80" Style="{StaticResource ThemeButtonExtraSmall}" Click="CloseWindow_OnClick"></Button>
+                    </dxlc:LayoutItem>
+                </dxlc:LayoutGroup>
+            </dxlc:LayoutGroup>
+        </dxlc:LayoutControl>
+    </StackPanel>
+</Window>

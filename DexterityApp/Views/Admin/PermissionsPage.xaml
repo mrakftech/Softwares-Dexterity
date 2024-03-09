@@ -1,0 +1,84 @@
+<Page x:Class="DexterityApp.Views.Admin.PermissionsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+      xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+      xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+      mc:Ignorable="d"
+      Title="PermissionsPage" Width="Auto"
+      Height="Auto">
+    <Grid>
+        <DockPanel>
+            <TextBlock Text="Permissions Management"
+                       Style="{StaticResource WindowTitle}"
+                       DockPanel.Dock="Top"
+                       />
+            <dx:DXTabControl Height="Auto" Width="Auto"   Style="{StaticResource CustomTabControl}">
+                <dx:DXTabItem Header="Permissions" >
+             
+                    <dxlc:LayoutControl Orientation="Vertical">
+                            <dxlc:LayoutGroup ItemSpace="10" Header="Permission Modifications" View="GroupBox" Width="500" Style="{StaticResource SimpleLayoutGroup}">
+                                <dxlc:LayoutGroup Orientation="Vertical">
+                                    <dxlc:LayoutItem Label="Roles:">
+                                        <dxe:ComboBoxEdit
+                                            Width="400"
+                                            x:Name="UserRoleTxt"
+                                            ItemsSource="{Binding Roles}"
+                                            SelectedIndexChanged="UserRoleTxt_OnSelectedIndexChanged" IsTextEditable="False">
+                                        <dxe:ComboBoxEdit.StyleSettings>
+                                            <dxe:ComboBoxStyleSettings/>
+                                        </dxe:ComboBoxEdit.StyleSettings>
+                                        </dxe:ComboBoxEdit>
+
+                                    </dxlc:LayoutItem>
+
+                                    <dxlc:LayoutItem Label="Modules:">
+                                        <dxe:ComboBoxEdit
+                                            Width="400"
+                                            IsEnabled="False"
+                                            x:Name="Modulues"
+                                            ItemsSource="{Binding Modules , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                            SelectedIndexChanged="Modulues_OnSelectedIndexChanged" IsTextEditable="False"
+                                            >
+                                        <dxe:ComboBoxEdit.StyleSettings>
+                                            <dxe:ComboBoxStyleSettings/>
+                                        </dxe:ComboBoxEdit.StyleSettings>
+                                    </dxe:ComboBoxEdit>
+
+                                    </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem Width="150">
+                                        <Button IsEnabled="False" Content="Load Permissions" x:Name="LoadPermissions"
+                                                Click="LoadPermissions_OnClick">
+                                        </Button>
+                                    </dxlc:LayoutItem>
+                               <dxlc:LayoutItem>
+                                   <dxlc:LayoutControl IsEnabled="False" Orientation="Horizontal" x:Name="CheckboxControl" Header="List"
+                                   >
+                                       <dxlc:LayoutGroup Orientation="Horizontal">
+                                           <dxe:CheckEdit x:Name="CreateCbx" Content="Create"/>
+                                           <dxe:CheckEdit x:Name="ReadCbx" Content="Read" />
+                                           <dxe:CheckEdit x:Name="UpdateCbx" Content="Update" />
+                                           <dxe:CheckEdit x:Name="DeleteCbx" Content="Delete" />
+                                           <dxe:CheckEdit x:Name="PrintCbx" Content="Print" />
+                                       </dxlc:LayoutGroup>
+                                   </dxlc:LayoutControl>
+                               </dxlc:LayoutItem>
+                                    <dxlc:LayoutItem>
+                                        <Button x:Name="SaveButton" Content="Save" Click="SaveButton_OnClick"></Button>
+                                    </dxlc:LayoutItem>
+                                </dxlc:LayoutGroup>
+
+                            </dxlc:LayoutGroup>
+
+
+                        </dxlc:LayoutControl>
+
+                </dx:DXTabItem>
+
+            </dx:DXTabControl>
+
+        </DockPanel>
+    </Grid>
+</Page>

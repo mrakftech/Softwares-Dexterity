@@ -1,0 +1,145 @@
+<Window x:Class="DexterityApp.Views.User.PatientManagement.AddNewPatientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:DexterityApp.Views.User.PatientManagement"
+        xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        mc:Ignorable="d"
+        Title="Add New Patient" Height="450" Width="600" WindowStartupLocation="CenterScreen" ShowInTaskbar="False"
+        ResizeMode="NoResize" x:Name="AddPatientWindow">
+    <Grid>
+        <DockPanel>
+            <TextBlock Text="Add New Patient" DockPanel.Dock="Top" Style="{StaticResource WindowTitle}" />
+
+            <dxlc:LayoutControl Orientation="Horizontal" ItemSpace="15">
+                <dxlc:LayoutGroup ItemSpace="10" Orientation="Vertical" Width="250">
+                    <dxlc:LayoutItem Label="First Name: *">
+                        <dxe:TextEdit
+                            Text="{Binding Patient.FirstName, UpdateSourceTrigger=PropertyChanged}"
+                            x:Name="PatientFirstNameTxt" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Last Name: *">
+                        <dxe:TextEdit
+                            Text="{Binding Patient.LastName, UpdateSourceTrigger=PropertyChanged}"
+                            x:Name="PatientLastNameTxt" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Date Of Birth: *">
+                        <dxe:DateEdit
+                            Text="{Binding Patient.DateOfBirth, UpdateSourceTrigger=PropertyChanged}"
+                            x:Name="DateOfBirth" />
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutItem Label="Address Line 1: *">
+                        <dxe:TextEdit
+                            TextWrapping="Wrap"
+                            VerticalScrollBarVisibility="Auto"
+                            AcceptsReturn="True"
+                            VerticalContentAlignment="Top"
+                            Text="{Binding Patient.AddressLine1, UpdateSourceTrigger=PropertyChanged}"
+                            x:Name="PatientAddressLine1" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Address Line 2:">
+                        <dxe:TextEdit
+                            TextWrapping="Wrap"
+                            VerticalScrollBarVisibility="Auto"
+                            AcceptsReturn="True"
+                            VerticalContentAlignment="Top"
+                            Text="{Binding Patient.AddressLine2, UpdateSourceTrigger=PropertyChanged}"
+                            x:Name="PatientAddressLine2" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Gender: *">
+                        <dxe:ComboBoxEdit
+                            IsTextEditable="False"
+                            ItemsSource="{Binding Gender}"
+                            Text="{Binding Patient.Gender, UpdateSourceTrigger=PropertyChanged}"
+                            x:Name="GenderTxt" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="PPSN: *">
+                        <dxe:TextEdit
+                            Text="{Binding Patient.Ppsn, UpdateSourceTrigger=PropertyChanged}"
+                            x:Name="PpsnTxt" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Home Phone:">
+                        <dxe:TextEdit
+                            Text="{Binding Patient.HomePhone, UpdateSourceTrigger=PropertyChanged}"
+                            x:Name="HomePhone" />
+                    </dxlc:LayoutItem>
+                </dxlc:LayoutGroup>
+                <dxlc:LayoutGroup ItemSpace="10" Orientation="Vertical" Width="250">
+                    <dxlc:LayoutItem Label="Patient Type: *">
+                        <dxe:ComboBoxEdit
+                            IsTextEditable="False"
+                            ItemsSource="{Binding PatientTypes}"
+                            Text="{Binding Patient.PatientType, UpdateSourceTrigger=PropertyChanged}"
+                            x:Name="PatientTypeTxt" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="GSM Doctor:">
+                        <dxe:ComboBoxEdit
+                            IsEnabled="False"
+                            x:Name="GsmDoctorTxt" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="GSM Doctor Number:">
+                        <dxe:TextEdit
+                            IsEnabled="False"
+                            Text="{Binding Patient.GmsDoctorNumber, UpdateSourceTrigger=PropertyChanged}"
+                            x:Name="GmsDoctorNumberTxt" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="GSM Number:">
+                        <dxe:TextEdit
+                            IsEnabled="False"
+                            Text="{Binding Patient.GmsNumber, UpdateSourceTrigger=PropertyChanged}"
+                            x:Name="GmsNumberTxt" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Expiry:">
+                        <dxe:DateEdit
+                            IsEnabled="False"
+                            Text="{Binding Patient.Expiry, UpdateSourceTrigger=PropertyChanged}"
+                            x:Name="ExpiryDate" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Insurance:">
+                        <dxe:ComboBoxEdit
+                            IsTextEditable="False"
+                            x:Name="InsuranceTxt" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Policy Number:">
+                        <dxe:TextEdit
+                            Text="{Binding Patient.PolicyNumber, UpdateSourceTrigger=PropertyChanged}"
+                            x:Name="PolicyNumberTxt" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Mobile Number:*">
+                        <dxe:TextEdit
+                            Text="{Binding Patient.Mobile, UpdateSourceTrigger=PropertyChanged}"
+                            x:Name="PatientMobile" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Email:*">
+                        <dxe:TextEdit
+                            Text="{Binding Patient.EmailAddress, UpdateSourceTrigger=PropertyChanged}"
+                            x:Name="PatientEmail" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutGroup>
+                        <dxlc:LayoutItem>
+                            <Button
+                                Width="100"
+                                Style="{StaticResource ThemeButtonSmall}"
+                                Content="Save Patient"
+                                x:Name="SavePatient" Command="{Binding SavePatientCommand}"
+                                CommandParameter="{Binding ElementName=AddPatientWindow}" />
+
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem>
+                            <Button
+                                Width="100"
+                                Style="{StaticResource ThemeButtonSmall}"
+                                Content="Close"
+                                x:Name="CloseWindow" Command="{Binding CloseWindowCommand}"
+                                CommandParameter="{Binding ElementName=AddPatientWindow}" />
+                        </dxlc:LayoutItem>
+                    </dxlc:LayoutGroup>
+                </dxlc:LayoutGroup>
+
+            </dxlc:LayoutControl>
+        </DockPanel>
+    </Grid>
+</Window>

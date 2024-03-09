@@ -1,0 +1,70 @@
+<Window x:Class="DexterityApp.Views.User.Appointment.Dialogs.SelectPatient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:local="clr-namespace:DexterityApp.Views.User.Appointment.Dialogs"
+        mc:Ignorable="d"
+        Title="Patient search criteria" Height="450" Width="800" ResizeMode="NoResize" x:Name="SelectPatientWindow">
+
+    <DockPanel>
+        <TextBlock Text="Patient search criteria"
+                   Style="{StaticResource WindowTitle}"
+                   DockPanel.Dock="Top" />
+         <dxlc:LayoutControl DockPanel.Dock="Top" Orientation="Vertical" >
+                <dxlc:LayoutGroup ItemSpace="50">
+                    <dxlc:LayoutItem Label="Name:" Style="{StaticResource SimpleLayoutItem}">
+                        <TextBlock Text="{Binding Patient.FullName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                   Style="{StaticResource SmallText}" />
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutItem Label="Nationality:" Style="{StaticResource SimpleLayoutItem}">
+                        <TextBlock Text="{Binding Patient.Country}" Style="{StaticResource SmallText}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Patient Status:" Style="{StaticResource SimpleLayoutItem}">
+                        <TextBlock Text="{Binding Patient.PatientStatus}" Style="{StaticResource SmallText}" />
+                    </dxlc:LayoutItem>
+                </dxlc:LayoutGroup>
+
+                <dxlc:LayoutGroup ItemSpace="50">
+                    <dxlc:LayoutItem Label="Date Of Birth:" Style="{StaticResource SimpleLayoutItem}">
+                        <TextBlock Text="{Binding Patient.Dob, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                   Style="{StaticResource SmallText}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="PPSN:" Style="{StaticResource SimpleLayoutItem}">
+                        <TextBlock Text="{Binding Patient.Ppsn}" Style="{StaticResource SmallText}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Patient Type:" Style="{StaticResource SimpleLayoutItem}">
+                        <TextBlock Text="{Binding Patient.PatientType}" Style="{StaticResource SmallText}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Patient Type:" Style="{StaticResource SimpleLayoutItem}">
+                        <Button Command="{Binding GetPatientsCommand}" Content="Load"></Button>
+                    </dxlc:LayoutItem>
+                </dxlc:LayoutGroup>
+            </dxlc:LayoutControl>
+                 <dxg:GridControl x:Name="PatientGridControl" DockPanel.Dock="Bottom" Width="Auto"
+                                             Height="Auto"
+                                             ItemsSource="{Binding Patients, IsAsync=True, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"
+                                             AutoGenerateColumns="None"
+                                             ShowLoadingPanel="{Binding IsLoading}" SelectionMode="Row">
+                                <dxg:GridControl.View>
+                                    <dxg:TableView x:Name="PatientView" AutoWidth="true" ShowTotalSummary="True"
+                                                   ShowIndicator="False"
+                                                   
+                                                   AllowEditing="False" NavigationStyle="Row" AllowCellMerge="True"
+                                                   AllowPaging="True" ShowSearchPanelMode="Always">
+                                    </dxg:TableView>
+                                </dxg:GridControl.View>
+                                <dxg:GridColumn FieldName="CreatedDate" Header="Created Date" Width="Auto" />
+                                <dxg:GridColumn FieldName="FullName" Header="Full Name" Width="Auto" />
+                                <dxg:GridColumn FieldName="Gender" Header="Gender" Width="Auto" />
+                                <dxg:GridColumn FieldName="DateOfBirth" Header="Date Of Birth" Width="30" />
+                                <dxg:GridColumn FieldName="EmailAddress" Header="Email" Width="Auto" />
+                                <dxg:GridColumn FieldName="AddressLine1" Header="Address" Width="Auto" />
+                            </dxg:GridControl>
+    </DockPanel>
+</Window>
